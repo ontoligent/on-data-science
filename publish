@@ -9,6 +9,7 @@ cp -pR edit/_build/html docs
 
 # Pust the book to the web
 echo "Pushing to the repo"
+now=$(date)
 git add docs/*
-git commit -m "New publication"
+git commit -m "New publication $date"
 git push

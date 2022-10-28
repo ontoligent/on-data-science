@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>From Pipeline to Paradigm: The 4 + 1 Model of Data Science &#8212; On Data Science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">On Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   From Pipeline to Paradigm: The 4 + 1 Model of Data Science
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/from-pipeline-to-paradigm.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/from-pipeline-to-paradigm.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-sense-of-the-field">
+   Making Sense of the Field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-common-trope-the-image-of-the-pipeline">
+   A Common Trope: The Image of the Pipeline
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-common-sequence">
+     A Common Sequence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-arc-with-four-zones">
+     An Arc with Four Zones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-four-areas-plus-one">
+     The Four Areas, Plus One
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-i-value">
+       Area I: Value
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-ii-design">
+       Area II´: Design
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-iii-systems">
+       Area III´: Systems
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-iv-analytics">
+       Area IV: Analytics
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-v-practice">
+       Area V: Practice
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#width-4-72in-height-1-92in-two-principal-components">
+     {width=”4.72in” height=”1.92in”}Two Principal Components
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pc1-human-versus-machine">
+       PC1: Human versus Machine
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pc2-concrete-versus-abstract">
+       PC2: Concrete versus Abstract
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-representation">
+     Final Representation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpreting-the-model">
+   Interpreting the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afcrl-1963-report-on-research-at-afcrl-bedford-mass-air-force-cambridge-research-laboratories-anderson-chris-2008-the-end-of-theory-the-data-deluge-makes-the-scientific-method-obsolete-wired-june-23-2008-http-www-wired-com-science-discoveries-magazine-16-07-pb-theory-azevedo-ana-isabel-rojao-lourenco-and-manuel-filipe-santos-2008-kdd-semma-and-crisp-dm-a-parallel-overview-iads-dm-breiman-leo-2001-statistical-modeling-the-two-cultures-statistical-science-16-3-199-231-https-doi-org-10-1214-ss-1009213726-bryan-jennifer-and-hadley-wickham-2017-data-science-a-three-ring-circus-or-a-big-tent-december-https-arxiv-org-abs-1712-07349v1-cao-longbing-2017-data-science-a-comprehensive-overview-acm-computing-surveys-50-3-43-1-43-42-https-doi-org-10-1145-3076253-chambers-john-m-1993-greater-or-lesser-statistics-a-choice-for-future-research-statistics-and-computing-3-4-182-84-https-doi-org-10-1007-bf00141776-cleveland-william-s-2001-data-science-an-action-plan-for-expanding-the-technical-areas-of-the-field-of-statistics-international-statistical-review-revue-internationale-de-statistique-69-1-21-26-https-doi-org-10-2307-1403527-conway-drew-2010-the-data-science-venn-diagram-drew-conway-blog-september-30-2010-http-drewconway-com-zia-2013-3-26-the-data-science-venn-diagram-davenport-thomas-h-and-d-j-patil-2012-data-scientist-the-sexiest-job-of-the-21st-century-harvard-business-review-october-1-2012-https-hbr-org-2012-10-data-scientist-the-sexiest-job-of-the-21st-century-davidian-marie-2013-aren-t-we-data-science-amstat-news-the-membership-magazine-of-the-american-statistical-association-no-433-3-donoho-david-2017-50-years-of-data-science-journal-of-computational-and-graphical-statistics-26-4-745-66-https-doi-org-10-1080-10618600-2017-1384734-gray-jim-2007-escience-a-transformed-scientific-method-presented-at-the-nrc-cstb-mountain-view-ca-january-11-hammerbacher-jeff-2009-information-platforms-and-the-rise-of-the-data-scientist-in-beautiful-data-the-stories-behind-elegant-data-solutions-73-84-o-reilly-media-sebastopol-ca-hayashi-chikio-1998-what-is-data-science-fundamental-concepts-and-a-heuristic-example-in-data-science-classification-and-related-methods-edited-by-chikio-hayashi-keiji-yajima-hans-hermann-bock-noboru-ohsumi-yutaka-tanaka-and-yasumasa-baba-40-51-studies-in-classification-data-analysis-and-knowledge-organization-springer-japan-herman-mark-stephanie-rivera-mills-stephen-josh-sullivan-peter-guerra-alex-cosmas-drew-farris-et-al-2013-field-guide-to-data-science-booz-allen-hamilton-inc-https-www-boozallen-com-s-insight-publication-field-guide-to-data-science-html-hey-tony-stewart-tansley-and-kristin-m-tolle-2009-jim-gray-on-escience-a-transformed-scientific-method-laney-douglas-and-lisa-kart-2012-emerging-role-of-the-data-scientist-and-the-art-of-data-science-march-20-2012-https-web-archive-org-web-20130115192221-http-www-gartner-com-displaydocument-ref-clientfriendlyurl-id-1955615-levy-steven-and-l-j-ganser-2012-in-the-plex-how-google-thinks-works-and-shapes-our-lives-unabridged-edition-brilliance-audio-loukides-mike-2011-what-is-data-science-o-reilly-media-inc-https-books-google-com-books-hl-en-lr-id-oq2q5jqodec-oi-fnd-pg-pt2-dq-data-science-ots-1y7o922kdq-sig-yq1xsyng6eckn6oujvjfvtnzkzy-lovell-michael-c-1983-data-mining-the-review-of-economics-and-statistics-65-1-1-12-https-doi-org-10-2307-1924403-manovich-lev-1999-database-as-symbolic-form-convergence-1999-http-con-sagepub-com-cgi-content-abstract-5-2-80-manyika-james-michael-chui-brad-brown-jacques-bughin-richard-dobbs-charles-roxburgh-and-angela-h-byers-2011-big-data-the-next-frontier-for-innovation-competition-and-productivity-http-www-citeulike-org-group-18242-article-9341321-mason-hilary-and-christopher-wiggins-2010-a-taxonomy-of-data-science-dataists-blog-september-25-2010-http-www-dataists-com-2010-09-a-taxonomy-of-data-science-mckinsey-company-2009-hal-varian-on-how-the-web-challenges-managers-mckinsey-company-january-1-2009-https-www-mckinsey-com-industries-technology-media-and-telecommunications-our-insights-hal-varian-on-how-the-web-challenges-managers-nature-big-data-knowledge-in-the-petabyte-era-2008-september-4-2008-https-www-nature-com-nature-volumes-455-issues-7209-ohsumi-noboru-1994-new-data-and-new-tools-a-hypermedia-environment-for-navigating-statistical-knowledge-in-data-science-in-new-approaches-in-classification-and-data-analysis-45-54-berlin-springer-verlag-owen-sean-2015-what-50-years-of-data-science-leaves-out-sean-owen-blog-november-15-2015-https-medium-com-srowen-what-50-years-of-data-science-leaves-out-2366c9b61d3d-rodriguez-robert-2012-big-data-and-better-data-amstat-news-blog-june-1-2012-https-magazine-amstat-org-blog-2012-06-01-prescorner-rodriguez-robert-marie-davidian-and-nathaniel-schenker-2013-the-asa-and-big-data-amstat-news-blog-june-1-2013-https-magazine-amstat-org-blog-2013-06-01-the-asa-and-big-data-russell-stuart-jonathan-and-peter-norvig-1995-artificial-intelligence-a-modern-approach-prentice-hall-simberloff-daniel-b-c-barish-k-k-droegemeier-d-etter-n-fedoroff-k-ford-l-lanzerotti-a-leshner-j-lubchenco-and-m-rossmann-2005-long-lived-digital-data-collections-enabling-research-and-education-in-the-21st-century-national-science-foundation-snow-c-p-2013-the-two-cultures-and-the-scientific-revolution-martino-fine-books-swan-alma-and-sheridan-brown-2008-the-skills-role-and-career-structure-of-data-scientists-and-curators-an-assessment-of-current-practice-and-future-needs-programme-project-deposit-september-2-2008-http-repository-jisc-ac-uk-245-wirth-rudiger-and-jochen-hipp-1999-crisp-dm-towards-a-standard-process-model-for-data-mining-wu-c-f-jeff-1997-statistics-data-science-yau-nathan-2009a-google-s-chief-economist-hal-varian-on-statistics-and-data-flowingdata-blog-february-25-2009-https-flowingdata-com-2009-02-25-googles-chief-economist-hal-varian-on-statistics-and-data-2009b-rise-of-the-data-scientist-flowingdata-blog-june-4-2009-https-flowingdata-com-2009-06-04-rise-of-the-data-scientist-2009c-data-is-the-new-hot-drop-dead-gorgeous-field-flowingdata-blog-august-7-2009-https-flowingdata-com-2009-08-07-data-is-the-new-hot-drop-dead-gorgeous-field-yu-bin-2014-let-us-own-data-science-institute-of-mathematical-statistics-blog-october-1-2014-https-imstat-org-2014-10-01-ims-presidential-address-let-us-own-data-science-zuboff-shoshana-1995-in-the-age-of-the-smart-machine-the-future-of-work-and-power-repr-basic-books-http-gen-lib-rus-ec-book-index-php-md5-76dd1180c201eed5973bf83d45489b37">
+   AFCRL. 1963. “Report on Research at AFCRL.” Bedford, Mass.: Air Force Cambridge Research Laboratories.Anderson, Chris. 2008. “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete.”
+   <em>
+    Wired
+   </em>
+   , June 23, 2008. http://www.wired.com/science/discoveries/magazine/16-07/pb_theory.Azevedo, Ana Isabel Rojão Lourenço, and Manuel Filipe Santos. 2008. “KDD, SEMMA and CRISP-DM: A Parallel Overview.”
+   <em>
+    IADS-DM
+   </em>
+   .Breiman, Leo. 2001. “Statistical Modeling: The Two Cultures.”
+   <em>
+    Statistical Science
+   </em>
+   16 (3): 199–231. https://doi.org/10.1214/ss/1009213726.Bryan, Jennifer, and Hadley Wickham. 2017. “Data Science: A Three Ring Circus or a Big Tent?,” December. https://arxiv.org/abs/1712.07349v1.Cao, Longbing. 2017. “Data Science: A Comprehensive Overview.”
+   <em>
+    ACM Computing Surveys
+   </em>
+   50 (3): 43:1-43:42. https://doi.org/10.1145/3076253.Chambers, John M. 1993. “Greater or Lesser Statistics: A Choice for Future Research.”
+   <em>
+    Statistics and Computing
+   </em>
+   3 (4): 182–84. https://doi.org/10.1007/BF00141776.Cleveland, William S. 2001. “Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics.”
+   <em>
+    International Statistical Review / Revue Internationale de Statistique
+   </em>
+   69 (1): 21–26. https://doi.org/10.2307/1403527.Conway, Drew. 2010. “The Data Science Venn Diagram.”
+   <em>
+    Drew Conway
+   </em>
+   (blog). September 30, 2010. http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram.Davenport, Thomas H., and D. J. Patil. 2012. “Data Scientist: The Sexiest Job of the 21st Century.” Harvard Business Review. October 1, 2012. https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century.Davidian, Marie. 2013. “Aren’t We Data Science?”
+   <em>
+    AMSTAT News: The Membership Magazine of the American Statistical Association
+   </em>
+   , no. 433: 3.Donoho, David. 2017. “50 Years of Data Science.”
+   <em>
+    Journal of Computational and Graphical Statistics
+   </em>
+   26 (4): 745–66. https://doi.org/10.1080/10618600.2017.1384734.Gray, Jim. 2007. “EScience – A Transformed Scientific Method.” Presented at the NRC-CSTB, Mountain View, CA, January 11.Hammerbacher, Jeff. 2009. “Information Platforms and the Rise of the Data Scientist.” In
+   <em>
+    Beautiful Data: The Stories Behind Elegant Data Solutions
+   </em>
+   , 73–84. O’Reilly Media Sebastopol, CA.Hayashi, Chikio. 1998. “What Is Data Science? Fundamental Concepts and a Heuristic Example.” In
+   <em>
+    Data Science, Classification, and Related Methods
+   </em>
+   , edited by Chikio Hayashi, Keiji Yajima, Hans-Hermann Bock, Noboru Ohsumi, Yutaka Tanaka, and Yasumasa Baba, 40–51. Studies in Classification, Data Analysis, and Knowledge Organization. Springer Japan.Herman, Mark, Stephanie Rivera, Mills Stephen, Josh Sullivan, Peter Guerra, Alex Cosmas, Drew Farris, et al. 2013. “Field Guide to Data Science.” Booz Allen Hamilton Inc. https://www.boozallen.com/s/insight/publication/field-guide-to-data-science.html.Hey, Tony, Stewart Tansley, and Kristin M. Tolle. 2009. “Jim Gray on EScience: A Transformed Scientific Method.”Laney, Douglas, and Lisa Kart. 2012. “Emerging Role of the Data Scientist and the Art of Data Science.” March 20, 2012. https://web.archive.org/web/20130115192221/http://www.gartner.com/DisplayDocument?ref=clientFriendlyUrl&amp;id=1955615.Levy, Steven, and L. J. Ganser. 2012.
+   <em>
+    In The Plex: How Google Thinks, Works, and Shapes Our Lives
+   </em>
+   . Unabridged edition. Brilliance Audio.Loukides, Mike. 2011.
+   <em>
+    What Is Data Science?
+   </em>
+   O’Reilly Media, Inc. https://books.google.com/books?hl=en&amp;lr=&amp;id=-OQ2q5JqOdEC&amp;oi=fnd&amp;pg=PT2&amp;dq=”data+science”&amp;ots=1Y7O922KDq&amp;sig=yQ1XsyNG6eckn6oUjVjfvtNzKzY.Lovell, Michael C. 1983. “Data Mining.”
+   <em>
+    The Review of Economics and Statistics
+   </em>
+   65 (1): 1–12. https://doi.org/10.2307/1924403.Manovich, Lev. 1999. “Database as Symbolic Form.” Convergence. 1999. http://con.sagepub.com/cgi/content/abstract/5/2/80.Manyika, James, Michael Chui, Brad Brown, Jacques Bughin, Richard Dobbs, Charles Roxburgh, and Angela H. Byers. 2011. “Big Data: The Next Frontier for Innovation, Competition, and Productivity.” http://www.citeulike.org/group/18242/article/9341321.Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.”
+   <em>
+    Dataists
+   </em>
+   (blog). September 25, 2010. http://www.dataists.com/2010/09/a-taxonomy-of-data-science/.McKinsey &amp; Company. 2009. “Hal Varian on How the Web Challenges Managers.”
+   <em>
+    McKinsey &amp; Company
+   </em>
+   , January 1, 2009. https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/hal-varian-on-how-the-web-challenges-managers.”Nature: Big Data: Knowledge in the Petabyte Era.” 2008, September 4, 2008. https://www.nature.com/nature/volumes/455/issues/7209.Ohsumi, Noboru. 1994. “New Data and New Tools: A Hypermedia Environment for Navigating Statistical Knowledge in Data Science.” In
+   <em>
+    New Approaches in Classification and Data Analysis
+   </em>
+   , 45–54. Berlin: Springer-Verlag.Owen, Sean. 2015. “What ‘50 Years of Data Science’ Leaves Out.”
+   <em>
+    Sean Owen
+   </em>
+   (blog). November 15, 2015. https://medium.com/@srowen/what-50-years-of-data-science-leaves-out-2366c9b61d3d.Rodriguez, Robert. 2012. “Big Data and Better Data.”
+   <em>
+    Amstat News
+   </em>
+   (blog). June 1, 2012. https://magazine.amstat.org/blog/2012/06/01/prescorner/.Rodriguez, Robert, Marie Davidian, and Nathaniel Schenker. 2013. “The ASA and Big Data.”
+   <em>
+    Amstat News
+   </em>
+   (blog). June 1, 2013. https://magazine.amstat.org/blog/2013/06/01/the-asa-and-big-data/.Russell, Stuart Jonathan, and Peter Norvig. 1995.
+   <em>
+    Artificial Intelligence: A Modern Approach
+   </em>
+   . Prentice Hall.Simberloff, Daniel, B. C. Barish, K. K. Droegemeier, D. Etter, N. Fedoroff, K. Ford, L. Lanzerotti, A. Leshner, J. Lubchenco, and M. Rossmann. 2005. “Long-Lived Digital Data Collections: Enabling Research and Education in the 21st Century.”
+   <em>
+    National Science Foundation
+   </em>
+   .Snow, C. P. 2013.
+   <em>
+    The Two Cultures and the Scientific Revolution
+   </em>
+   . Martino Fine Books.Swan, Alma, and Sheridan Brown. 2008. “The Skills, Role and Career Structure of Data Scientists and Curators: An Assessment of Current Practice and Future Needs.” Programme/Project deposit. September 2, 2008. http://repository.jisc.ac.uk/245/.Wirth, Rüdiger, and Jochen Hipp. 1999. “CRISP-DM: Towards a Standard Process Model for Data Mining.”Wu, C. F. Jeff. 1997. “Statistics = Data Science?”Yau, Nathan. 2009a. “Google’s Chief Economist Hal Varian on Statistics and Data.”
+   <em>
+    FlowingData
+   </em>
+   (blog). February 25, 2009. https://flowingdata.com/2009/02/25/googles-chief-economist-hal-varian-on-statistics-and-data/.———. 2009b. “Rise of the Data Scientist.”
+   <em>
+    FlowingData
+   </em>
+   (blog). June 4, 2009. https://flowingdata.com/2009/06/04/rise-of-the-data-scientist/.———. 2009c. “Data Is the New Hot, Drop-Dead Gorgeous Field.”
+   <em>
+    FlowingData
+   </em>
+   (blog). August 7, 2009. https://flowingdata.com/2009/08/07/data-is-the-new-hot-drop-dead-gorgeous-field/.Yu, Bin. 2014. “Let Us Own Data Science.”
+   <em>
+    Institute of Mathematical Statistics
+   </em>
+   (blog). October 1, 2014. https://imstat.org/2014/10/01/ims-presidential-address-let-us-own-data-science/.Zuboff, Shoshana. 1995.
+   <em>
+    In the Age of the Smart Machine: The Future of Work and Power
+   </em>
+   . [Repr.]. Basic Books. http://gen.lib.rus.ec/book/index.php?md5=76dd1180c201eed5973bf83d45489b37.
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>From Pipeline to Paradigm: The 4 + 1 Model of Data Science</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-sense-of-the-field">
+   Making Sense of the Field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-common-trope-the-image-of-the-pipeline">
+   A Common Trope: The Image of the Pipeline
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-common-sequence">
+     A Common Sequence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-arc-with-four-zones">
+     An Arc with Four Zones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-four-areas-plus-one">
+     The Four Areas, Plus One
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-i-value">
+       Area I: Value
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-ii-design">
+       Area II´: Design
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-iii-systems">
+       Area III´: Systems
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-iv-analytics">
+       Area IV: Analytics
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-v-practice">
+       Area V: Practice
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#width-4-72in-height-1-92in-two-principal-components">
+     {width=”4.72in” height=”1.92in”}Two Principal Components
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pc1-human-versus-machine">
+       PC1: Human versus Machine
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pc2-concrete-versus-abstract">
+       PC2: Concrete versus Abstract
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-representation">
+     Final Representation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpreting-the-model">
+   Interpreting the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afcrl-1963-report-on-research-at-afcrl-bedford-mass-air-force-cambridge-research-laboratories-anderson-chris-2008-the-end-of-theory-the-data-deluge-makes-the-scientific-method-obsolete-wired-june-23-2008-http-www-wired-com-science-discoveries-magazine-16-07-pb-theory-azevedo-ana-isabel-rojao-lourenco-and-manuel-filipe-santos-2008-kdd-semma-and-crisp-dm-a-parallel-overview-iads-dm-breiman-leo-2001-statistical-modeling-the-two-cultures-statistical-science-16-3-199-231-https-doi-org-10-1214-ss-1009213726-bryan-jennifer-and-hadley-wickham-2017-data-science-a-three-ring-circus-or-a-big-tent-december-https-arxiv-org-abs-1712-07349v1-cao-longbing-2017-data-science-a-comprehensive-overview-acm-computing-surveys-50-3-43-1-43-42-https-doi-org-10-1145-3076253-chambers-john-m-1993-greater-or-lesser-statistics-a-choice-for-future-research-statistics-and-computing-3-4-182-84-https-doi-org-10-1007-bf00141776-cleveland-william-s-2001-data-science-an-action-plan-for-expanding-the-technical-areas-of-the-field-of-statistics-international-statistical-review-revue-internationale-de-statistique-69-1-21-26-https-doi-org-10-2307-1403527-conway-drew-2010-the-data-science-venn-diagram-drew-conway-blog-september-30-2010-http-drewconway-com-zia-2013-3-26-the-data-science-venn-diagram-davenport-thomas-h-and-d-j-patil-2012-data-scientist-the-sexiest-job-of-the-21st-century-harvard-business-review-october-1-2012-https-hbr-org-2012-10-data-scientist-the-sexiest-job-of-the-21st-century-davidian-marie-2013-aren-t-we-data-science-amstat-news-the-membership-magazine-of-the-american-statistical-association-no-433-3-donoho-david-2017-50-years-of-data-science-journal-of-computational-and-graphical-statistics-26-4-745-66-https-doi-org-10-1080-10618600-2017-1384734-gray-jim-2007-escience-a-transformed-scientific-method-presented-at-the-nrc-cstb-mountain-view-ca-january-11-hammerbacher-jeff-2009-information-platforms-and-the-rise-of-the-data-scientist-in-beautiful-data-the-stories-behind-elegant-data-solutions-73-84-o-reilly-media-sebastopol-ca-hayashi-chikio-1998-what-is-data-science-fundamental-concepts-and-a-heuristic-example-in-data-science-classification-and-related-methods-edited-by-chikio-hayashi-keiji-yajima-hans-hermann-bock-noboru-ohsumi-yutaka-tanaka-and-yasumasa-baba-40-51-studies-in-classification-data-analysis-and-knowledge-organization-springer-japan-herman-mark-stephanie-rivera-mills-stephen-josh-sullivan-peter-guerra-alex-cosmas-drew-farris-et-al-2013-field-guide-to-data-science-booz-allen-hamilton-inc-https-www-boozallen-com-s-insight-publication-field-guide-to-data-science-html-hey-tony-stewart-tansley-and-kristin-m-tolle-2009-jim-gray-on-escience-a-transformed-scientific-method-laney-douglas-and-lisa-kart-2012-emerging-role-of-the-data-scientist-and-the-art-of-data-science-march-20-2012-https-web-archive-org-web-20130115192221-http-www-gartner-com-displaydocument-ref-clientfriendlyurl-id-1955615-levy-steven-and-l-j-ganser-2012-in-the-plex-how-google-thinks-works-and-shapes-our-lives-unabridged-edition-brilliance-audio-loukides-mike-2011-what-is-data-science-o-reilly-media-inc-https-books-google-com-books-hl-en-lr-id-oq2q5jqodec-oi-fnd-pg-pt2-dq-data-science-ots-1y7o922kdq-sig-yq1xsyng6eckn6oujvjfvtnzkzy-lovell-michael-c-1983-data-mining-the-review-of-economics-and-statistics-65-1-1-12-https-doi-org-10-2307-1924403-manovich-lev-1999-database-as-symbolic-form-convergence-1999-http-con-sagepub-com-cgi-content-abstract-5-2-80-manyika-james-michael-chui-brad-brown-jacques-bughin-richard-dobbs-charles-roxburgh-and-angela-h-byers-2011-big-data-the-next-frontier-for-innovation-competition-and-productivity-http-www-citeulike-org-group-18242-article-9341321-mason-hilary-and-christopher-wiggins-2010-a-taxonomy-of-data-science-dataists-blog-september-25-2010-http-www-dataists-com-2010-09-a-taxonomy-of-data-science-mckinsey-company-2009-hal-varian-on-how-the-web-challenges-managers-mckinsey-company-january-1-2009-https-www-mckinsey-com-industries-technology-media-and-telecommunications-our-insights-hal-varian-on-how-the-web-challenges-managers-nature-big-data-knowledge-in-the-petabyte-era-2008-september-4-2008-https-www-nature-com-nature-volumes-455-issues-7209-ohsumi-noboru-1994-new-data-and-new-tools-a-hypermedia-environment-for-navigating-statistical-knowledge-in-data-science-in-new-approaches-in-classification-and-data-analysis-45-54-berlin-springer-verlag-owen-sean-2015-what-50-years-of-data-science-leaves-out-sean-owen-blog-november-15-2015-https-medium-com-srowen-what-50-years-of-data-science-leaves-out-2366c9b61d3d-rodriguez-robert-2012-big-data-and-better-data-amstat-news-blog-june-1-2012-https-magazine-amstat-org-blog-2012-06-01-prescorner-rodriguez-robert-marie-davidian-and-nathaniel-schenker-2013-the-asa-and-big-data-amstat-news-blog-june-1-2013-https-magazine-amstat-org-blog-2013-06-01-the-asa-and-big-data-russell-stuart-jonathan-and-peter-norvig-1995-artificial-intelligence-a-modern-approach-prentice-hall-simberloff-daniel-b-c-barish-k-k-droegemeier-d-etter-n-fedoroff-k-ford-l-lanzerotti-a-leshner-j-lubchenco-and-m-rossmann-2005-long-lived-digital-data-collections-enabling-research-and-education-in-the-21st-century-national-science-foundation-snow-c-p-2013-the-two-cultures-and-the-scientific-revolution-martino-fine-books-swan-alma-and-sheridan-brown-2008-the-skills-role-and-career-structure-of-data-scientists-and-curators-an-assessment-of-current-practice-and-future-needs-programme-project-deposit-september-2-2008-http-repository-jisc-ac-uk-245-wirth-rudiger-and-jochen-hipp-1999-crisp-dm-towards-a-standard-process-model-for-data-mining-wu-c-f-jeff-1997-statistics-data-science-yau-nathan-2009a-google-s-chief-economist-hal-varian-on-statistics-and-data-flowingdata-blog-february-25-2009-https-flowingdata-com-2009-02-25-googles-chief-economist-hal-varian-on-statistics-and-data-2009b-rise-of-the-data-scientist-flowingdata-blog-june-4-2009-https-flowingdata-com-2009-06-04-rise-of-the-data-scientist-2009c-data-is-the-new-hot-drop-dead-gorgeous-field-flowingdata-blog-august-7-2009-https-flowingdata-com-2009-08-07-data-is-the-new-hot-drop-dead-gorgeous-field-yu-bin-2014-let-us-own-data-science-institute-of-mathematical-statistics-blog-october-1-2014-https-imstat-org-2014-10-01-ims-presidential-address-let-us-own-data-science-zuboff-shoshana-1995-in-the-age-of-the-smart-machine-the-future-of-work-and-power-repr-basic-books-http-gen-lib-rus-ec-book-index-php-md5-76dd1180c201eed5973bf83d45489b37">
+   AFCRL. 1963. “Report on Research at AFCRL.” Bedford, Mass.: Air Force Cambridge Research Laboratories.Anderson, Chris. 2008. “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete.”
+   <em>
+    Wired
+   </em>
+   , June 23, 2008. http://www.wired.com/science/discoveries/magazine/16-07/pb_theory.Azevedo, Ana Isabel Rojão Lourenço, and Manuel Filipe Santos. 2008. “KDD, SEMMA and CRISP-DM: A Parallel Overview.”
+   <em>
+    IADS-DM
+   </em>
+   .Breiman, Leo. 2001. “Statistical Modeling: The Two Cultures.”
+   <em>
+    Statistical Science
+   </em>
+   16 (3): 199–231. https://doi.org/10.1214/ss/1009213726.Bryan, Jennifer, and Hadley Wickham. 2017. “Data Science: A Three Ring Circus or a Big Tent?,” December. https://arxiv.org/abs/1712.07349v1.Cao, Longbing. 2017. “Data Science: A Comprehensive Overview.”
+   <em>
+    ACM Computing Surveys
+   </em>
+   50 (3): 43:1-43:42. https://doi.org/10.1145/3076253.Chambers, John M. 1993. “Greater or Lesser Statistics: A Choice for Future Research.”
+   <em>
+    Statistics and Computing
+   </em>
+   3 (4): 182–84. https://doi.org/10.1007/BF00141776.Cleveland, William S. 2001. “Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics.”
+   <em>
+    International Statistical Review / Revue Internationale de Statistique
+   </em>
+   69 (1): 21–26. https://doi.org/10.2307/1403527.Conway, Drew. 2010. “The Data Science Venn Diagram.”
+   <em>
+    Drew Conway
+   </em>
+   (blog). September 30, 2010. http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram.Davenport, Thomas H., and D. J. Patil. 2012. “Data Scientist: The Sexiest Job of the 21st Century.” Harvard Business Review. October 1, 2012. https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century.Davidian, Marie. 2013. “Aren’t We Data Science?”
+   <em>
+    AMSTAT News: The Membership Magazine of the American Statistical Association
+   </em>
+   , no. 433: 3.Donoho, David. 2017. “50 Years of Data Science.”
+   <em>
+    Journal of Computational and Graphical Statistics
+   </em>
+   26 (4): 745–66. https://doi.org/10.1080/10618600.2017.1384734.Gray, Jim. 2007. “EScience – A Transformed Scientific Method.” Presented at the NRC-CSTB, Mountain View, CA, January 11.Hammerbacher, Jeff. 2009. “Information Platforms and the Rise of the Data Scientist.” In
+   <em>
+    Beautiful Data: The Stories Behind Elegant Data Solutions
+   </em>
+   , 73–84. O’Reilly Media Sebastopol, CA.Hayashi, Chikio. 1998. “What Is Data Science? Fundamental Concepts and a Heuristic Example.” In
+   <em>
+    Data Science, Classification, and Related Methods
+   </em>
+   , edited by Chikio Hayashi, Keiji Yajima, Hans-Hermann Bock, Noboru Ohsumi, Yutaka Tanaka, and Yasumasa Baba, 40–51. Studies in Classification, Data Analysis, and Knowledge Organization. Springer Japan.Herman, Mark, Stephanie Rivera, Mills Stephen, Josh Sullivan, Peter Guerra, Alex Cosmas, Drew Farris, et al. 2013. “Field Guide to Data Science.” Booz Allen Hamilton Inc. https://www.boozallen.com/s/insight/publication/field-guide-to-data-science.html.Hey, Tony, Stewart Tansley, and Kristin M. Tolle. 2009. “Jim Gray on EScience: A Transformed Scientific Method.”Laney, Douglas, and Lisa Kart. 2012. “Emerging Role of the Data Scientist and the Art of Data Science.” March 20, 2012. https://web.archive.org/web/20130115192221/http://www.gartner.com/DisplayDocument?ref=clientFriendlyUrl&amp;id=1955615.Levy, Steven, and L. J. Ganser. 2012.
+   <em>
+    In The Plex: How Google Thinks, Works, and Shapes Our Lives
+   </em>
+   . Unabridged edition. Brilliance Audio.Loukides, Mike. 2011.
+   <em>
+    What Is Data Science?
+   </em>
+   O’Reilly Media, Inc. https://books.google.com/books?hl=en&amp;lr=&amp;id=-OQ2q5JqOdEC&amp;oi=fnd&amp;pg=PT2&amp;dq=”data+science”&amp;ots=1Y7O922KDq&amp;sig=yQ1XsyNG6eckn6oUjVjfvtNzKzY.Lovell, Michael C. 1983. “Data Mining.”
+   <em>
+    The Review of Economics and Statistics
+   </em>
+   65 (1): 1–12. https://doi.org/10.2307/1924403.Manovich, Lev. 1999. “Database as Symbolic Form.” Convergence. 1999. http://con.sagepub.com/cgi/content/abstract/5/2/80.Manyika, James, Michael Chui, Brad Brown, Jacques Bughin, Richard Dobbs, Charles Roxburgh, and Angela H. Byers. 2011. “Big Data: The Next Frontier for Innovation, Competition, and Productivity.” http://www.citeulike.org/group/18242/article/9341321.Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.”
+   <em>
+    Dataists
+   </em>
+   (blog). September 25, 2010. http://www.dataists.com/2010/09/a-taxonomy-of-data-science/.McKinsey &amp; Company. 2009. “Hal Varian on How the Web Challenges Managers.”
+   <em>
+    McKinsey &amp; Company
+   </em>
+   , January 1, 2009. https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/hal-varian-on-how-the-web-challenges-managers.”Nature: Big Data: Knowledge in the Petabyte Era.” 2008, September 4, 2008. https://www.nature.com/nature/volumes/455/issues/7209.Ohsumi, Noboru. 1994. “New Data and New Tools: A Hypermedia Environment for Navigating Statistical Knowledge in Data Science.” In
+   <em>
+    New Approaches in Classification and Data Analysis
+   </em>
+   , 45–54. Berlin: Springer-Verlag.Owen, Sean. 2015. “What ‘50 Years of Data Science’ Leaves Out.”
+   <em>
+    Sean Owen
+   </em>
+   (blog). November 15, 2015. https://medium.com/@srowen/what-50-years-of-data-science-leaves-out-2366c9b61d3d.Rodriguez, Robert. 2012. “Big Data and Better Data.”
+   <em>
+    Amstat News
+   </em>
+   (blog). June 1, 2012. https://magazine.amstat.org/blog/2012/06/01/prescorner/.Rodriguez, Robert, Marie Davidian, and Nathaniel Schenker. 2013. “The ASA and Big Data.”
+   <em>
+    Amstat News
+   </em>
+   (blog). June 1, 2013. https://magazine.amstat.org/blog/2013/06/01/the-asa-and-big-data/.Russell, Stuart Jonathan, and Peter Norvig. 1995.
+   <em>
+    Artificial Intelligence: A Modern Approach
+   </em>
+   . Prentice Hall.Simberloff, Daniel, B. C. Barish, K. K. Droegemeier, D. Etter, N. Fedoroff, K. Ford, L. Lanzerotti, A. Leshner, J. Lubchenco, and M. Rossmann. 2005. “Long-Lived Digital Data Collections: Enabling Research and Education in the 21st Century.”
+   <em>
+    National Science Foundation
+   </em>
+   .Snow, C. P. 2013.
+   <em>
+    The Two Cultures and the Scientific Revolution
+   </em>
+   . Martino Fine Books.Swan, Alma, and Sheridan Brown. 2008. “The Skills, Role and Career Structure of Data Scientists and Curators: An Assessment of Current Practice and Future Needs.” Programme/Project deposit. September 2, 2008. http://repository.jisc.ac.uk/245/.Wirth, Rüdiger, and Jochen Hipp. 1999. “CRISP-DM: Towards a Standard Process Model for Data Mining.”Wu, C. F. Jeff. 1997. “Statistics = Data Science?”Yau, Nathan. 2009a. “Google’s Chief Economist Hal Varian on Statistics and Data.”
+   <em>
+    FlowingData
+   </em>
+   (blog). February 25, 2009. https://flowingdata.com/2009/02/25/googles-chief-economist-hal-varian-on-statistics-and-data/.———. 2009b. “Rise of the Data Scientist.”
+   <em>
+    FlowingData
+   </em>
+   (blog). June 4, 2009. https://flowingdata.com/2009/06/04/rise-of-the-data-scientist/.———. 2009c. “Data Is the New Hot, Drop-Dead Gorgeous Field.”
+   <em>
+    FlowingData
+   </em>
+   (blog). August 7, 2009. https://flowingdata.com/2009/08/07/data-is-the-new-hot-drop-dead-gorgeous-field/.Yu, Bin. 2014. “Let Us Own Data Science.”
+   <em>
+    Institute of Mathematical Statistics
+   </em>
+   (blog). October 1, 2014. https://imstat.org/2014/10/01/ims-presidential-address-let-us-own-data-science/.Zuboff, Shoshana. 1995.
+   <em>
+    In the Age of the Smart Machine: The Future of Work and Power
+   </em>
+   . [Repr.]. Basic Books. http://gen.lib.rus.ec/book/index.php?md5=76dd1180c201eed5973bf83d45489b37.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="from-pipeline-to-paradigm-the-4-1-model-of-data-science">
+<h1>From Pipeline to Paradigm: The 4 + 1 Model of Data Science<a class="headerlink" href="#from-pipeline-to-paradigm-the-4-1-model-of-data-science" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>The interests of data scientists—the information and computer
+scientists, database and software engineers and programmers,
+disciplinary experts, curators and expert annotators, librarians,
+archivists, and others, who are crucial to the successful management
+of a digital data collection—lie in having their creativity and
+intellectual contributions fully recognized.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>National Science Board, “Long-Lived Digital Collections: Enabling
+Research and Education in the 21^st^ Century”(Simberloff et al.
+2005: 27).</p></li>
+</ul>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>In 2008, the year of Google’s tenth anniversary, the primary meaning of
+the term “data science” (and the related term “data scientist”) changed.
+From at least the early 1990s up to this time the term referred to an
+established if obscure field dedicated to the processing and management
+of scientific data. This field was represented by journals such as
+CODATA’s <em>Data Science Journal</em> (founded in 2002) and addressed in
+high-level policy reports from the NSF in the US and JISC in the UK
+(Simberloff et al. 2005; Swan and Brown 2008). After 2008, resulting
+from the usage of “data scientist” by dominant internet companies like
+LinkedIn and Facebook, and promoted by influential bloggers like Nathan
+Yau of <em>FlowingData</em>, the term shifted meaning to a wildly popular
+activity within the data-driven corporation (Davenport and Patil 2012;
+Hammerbacher 2009; Yau 2009b). The newer usage referred to an advanced
+form of business intelligence, broadly defined, an eclectic mixture of
+statistics, data mining, artificial intelligence, computer science, and
+a host of recently developed data processing technologies designed to
+store and process so-called big data—data generated by social media,
+scientific instruments, transactional machinery, embedded sensors, and a
+variety of other sources.<a class="footnote-reference brackets" href="#id4" id="id1">1</a></p>
+<p>Earlier, in the 1990s and early 2000s, the term was appropriated by a
+handful of academic statisticians in Japan and the U.S. seeking to
+expand and rebrand their field in response to the rapid growth and
+overshadowing effects of computational statistics and data mining
+(Ohsumi 1994; Wu 1997; Hayashi 1998; Cleveland 2001). However, this
+usage never caught on.<a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
+<p>Since 2009, the growth of the term’s new usage and its cluster of
+associated activities has been exponential. This growth has been
+associated with a high demand for data scientists, a story that
+continues to be covered by the news media. The response by institutions
+of higher education to train data scientists to meet industry demand has
+been rapid and pronounced. Since the shift in meaning, hundreds of
+master’s degree programs in data science and closely related fields have
+been established in the United States, both residential and online. More
+recently, a handful of doctoral programs and schools of data science
+have emerged, along with undergraduate offerings to meet increasing
+student demand.</p>
+<p>One effect of these developments has been to stimulate a preferential
+attachment process within the network of disciplines that constitute the
+academy: as a field representing the “sexiest job of the 21^st^
+century,” attracting students, gifts, and internal resources, many
+adjacent disciplines—from systems engineering and computer science to
+statistics and a variety of quantitative and computational
+sciences—have sought to associate themselves with the field. Indeed,
+because data science has had no history in the academy, these contiguous
+fields have provided the courses and faculty out of which the majority
+of data science programs have been built. The result is that data
+science has become a complex and internally competitive patchwork of
+industrial and academic interests and perspectives, reflecting the
+broader engagement of society with data and its analysis beyond the
+concept of data science inherited from industry.</p>
+<p>From this confluence of sources a variety of definitions of data science
+have emerged. One common view within the academy is that data science is
+a buzzword that just means statistics (or data analysis) rebranded in
+the era of widespread computational technology. For others, the field
+represents a new paradigm of science based on data abundance and <em>in
+silico</em> experimentation. Some recall the older meaning, as the science
+of processing and managing data to support scientific research. Outside
+of academia, definitions may range, as mentioned, from a form of
+business intelligence for the data-driven firm to the application of
+machine learning and artificial intelligence to big data to solve real
+world problems. To complicate matters further, the job descriptions of
+data scientists overlap significantly with those of other roles, aside
+from statistician and data analyst, ranging from business analyst to
+machine learning engineer. And then there are fields like critical data
+studies which bring their own understandings of data science in their
+efforts to describe its social consequences and ethical obligations.</p>
+<p>This variety is not necessarily a bad thing—it reflects the vibrant
+fertility in the field that has contributed to its success. But when it
+comes to building academic programs to meet the great demand for data
+scientists, clear definitions matter. The categories, values, and
+relationships they make explicit determine everything from the design of
+curricula to the selection of faculty to the allocation of resources for
+research. Academic programs have an obligation to arrive at a coherent
+and compelling understanding of the field that will situate it among its
+fellow disciplines on campus and remain relevant to the extra-academic
+organizations where data scientists work. Such an understanding should
+be developed from a clear understanding of the origin of data science
+and why it has emerged as such a powerfully attractive rubric under
+which people and resources are being marshalled.</p>
+<p>So, how do we define the field so that we preserve its richness and
+utility in a dynamic world while having a clear idea of its central
+concerns and ideas? To answer this, we need to do more than produce a
+list of all the things that data scientists do in the hopes that some
+order might emerge from it. Nor are high-level constructs like
+simplified Venn diagrams helpful here. In both cases, important details
+and questions of meaning and priority are left to interpretation. What
+we need is an understanding of why it is that such a diverse collection
+of definitions would appear together in the first place. What principle
+or theme, if any, brings them together?</p>
+</section>
+<section id="making-sense-of-the-field">
+<h2>Making Sense of the Field<a class="headerlink" href="#making-sense-of-the-field" title="Permalink to this headline">#</a></h2>
+<p>Ever since Nathan Yau corrected Hal Varian’s usage of “statistician” to
+“data scientist” in reference to Varian’s famous quip about the former
+being the “sexy job in the next ten years,” there has been no shortage
+of attempts to make sense of the new field (McKinsey &amp; Company 2009; Yau
+2009b).<a class="footnote-reference brackets" href="#id6" id="id3">3</a> These generally come from either industry or academia. Among
+the former are early responses from the blogosphere (Yau 2009b; 2009c;
+2009a; Conway 2010; Mason and Wiggins 2010) followed by those of
+industry thought leaders, such as O’Reilly (Loukides 2011), McKinsey
+(Manyika et al. 2011), Harvard Business Review (Davenport and Patil
+2012), Gartner (Laney and Kart 2012), and Booz Allen Hamilton (Herman et
+al. 2013). Among the academic responses are those from statisticians,
+the most popular being Donoho’s trenchant “50 Years of Data Science”
+(Donoho 2017 [2015]).</p>
+<p>For the most part, the responses from industry are descriptive and
+approving while the academic ones are critical and prescriptive. Those
+in industry have sought to make sense of data science as a new field to
+those wishing to hire data scientists, emphasizing the unique mixture of
+roles it involves, from data wrangling and exploration to software
+engineering and the visual communication of results. In contrast,
+academic statisticians have reacted with surprise and concern at the
+glaring disconnect between their field and data science (Davidian 2013;
+Rodriguez 2012; Rodriguez, Davidian, and Schenker 2013) and have
+exhorted their colleagues to take ownership of the new field (Yu 2014).
+Indeed, Donoho’s essay is a manifesto for doing so. He charts out the
+territory of “Greater Data Science” (GDS)—a play on Chambers’ earlier
+plea for a “greater statistics” that would be “based on an inclusive
+concept of learning from data”—and places statistics at its center
+(Chambers 1993: 1). In addition, he locates GDS in a genealogy that
+begins with data analysis—a practice envisioned in the 1960s by his
+mentor at Princeton, the legendary mathematician John Tukey, who serves
+as the founding ancestor in this legitimation narrative. GDS is thus
+defined as “a superset of the fields of statistics and machine learning,
+which adds some technology for ‘scaling up’ to ‘big data’” (Donoho 2017
+[2015]: 745).</p>
+<p>Naturally, for the purposes of academic program building the academic
+contributions have been more influential. Donoho’s essay in particular
+is often cited as authoritative (e.g. Cao 2017). It provides a
+compelling narrative for the origin of data science (as we know it
+today) and a comprehensive taxonomy of activities that might constitute
+the field. It is tempting to accept this work as a foundation for
+building out academic programs.</p>
+<p>However, Donoho’s framework has been criticized for downplaying the
+contribution of computational technology to data science. In the
+response section of Donoho’s essay, Chris Wiggins, Chief Data Scientist
+of the <em>New York Times</em> and a professor at Columbia, senses this and
+asserts that data science is a form of engineering that will be defined
+by its practitioners, not by academics trying to turn it into a (pure)
+science. In his response, Sean Owen, then Director of Data Science at
+Cloudera, argues that Donoho’s history excludes the significant
+contributions of data engineering (Donoho 2017: 764). Owen’s criticism
+is corroborated by the fact that Donoho’s history also elides the
+contributions of data collection and earlier iterations of the field of
+data science, especially as it has been practiced in the U.K. Elsewhere,
+Bryan and Wickham point out that, like many statisticians, Donoho
+mistakenly relegates computational work to superficial status while also
+missing “the full process of analysis” in which statistics “is but one
+small part” (Bryan and Wickham 2017). In his defense, Donoho
+acknowledges his bias, but justifies it by noting that although
+technological know-how is important, technologies are transitory and
+prone to rapid obsolescence, and therefore “the academic community can
+best focus on teaching broad principles—‘science’ rather than
+‘engineering’” (Donoho 2017: 765). <em>Scientia longa, brevis ars.</em></p>
+<p>Donoho’s marginalization of computational technology in his definition
+of data science is consistent with a larger conflict between what
+Breiman famously called “two cultures” in the field of statistics,
+adapting the expression C.P. Snow used to characterize the split between
+the sciences and the humanities (Breiman 2001; Snow 2013 [1959]). In
+brief, one culture seeks to represent causality—the black box of
+nature that generates the empirical data with which statistics
+begins—by means of probabilistic or stochastic data models. The
+parameters, random variables, and relationships that compose these
+models are imagined to correspond to things in the world, at least in
+principle. Data are used to estimate the parameters of these models.
+This is the “data modeling culture,” associated with traditional
+statistics and data analysis. Breiman guessed this culture comprised 98%
+of all statisticians. The other culture bypasses attempts to directly
+model the contents of the black box and instead focuses on accounting
+for the data by means of goal-oriented algorithms, regardless of the
+correspondence of these to the world. This is the “algorithmic modeling
+culture,” associated with computer science, machine learning, and data
+mining. Breiman described the growth of this culture as “rapid”
+(beginning circa 1985) and characterized its results as “startling” and
+suggested that statisticians ought to incorporate these methods into
+their field (Breiman 2001: 200). As is evident from the essay’s tepid
+comments and from Donohoe’s account of its weak reception by academic
+statisticians, Breiman’s advice went unheeded.</p>
+<p>At the heart of this conflict is the division between data analysis,
+championed by Donoho, and data mining (sometimes called “knowledge
+discovery in databases”), a field that emerged in the 1980s and ’90s
+with the rise of available computational technology and the growth of
+commodity databases, later spurred by the Web and social media. With
+these resources in place—effectively forming a new infrastructure for
+knowledge work—it became possible for the computationally-minded to
+pursue a purely data-centric approach to statistical problems that in
+many respects violates the principles and sensibilities of traditional
+statistics. It is no coincidence that Breiman’s essay appeared at about
+the time some academic statisticians sought to rebrand their field as
+data science in an attempt to integrate the gains of computational
+technology while purging it of the methodological sins of data mining.</p>
+<p>Contrary to Donoho’s narrative, data mining is as much of an antecedent
+to today’s form of data science as data analysis, if not more so. A
+direct connection exists between the data mining practices developed and
+codified in the 1990s and what Hammerbacher would later call data
+science, even if he may not have been aware of the connection. The
+general goal in both cases was to retrieve information from databases
+that had grown to the point of exceeding their ability to be queried for
+the work of business intelligence. Concretely, Hammerbacher’s work at
+Facebook continued the kind of work pioneered by Amit Patel a few years
+earlier at Google, who applied data mining methods to the logs the
+search giant had been accumulating and revealed their predictive power
+(Levy and Ganser 2012: 44–46). In both cases, the data were not
+acquired for the purpose of supporting predictive or inferential
+analyses, yet the data mining approach found enough value in them to
+build companies that would not only become hugely profitable but, in the
+case of Google, a model for science itself.</p>
+<p>Regarding the connection between science and data mining that Google
+shocked the world into recognizing, consider the impact data mining has
+had on how the scientific method has been reimagined in the era of
+pervasive computing. Gray’s framing of e-science as a fourth paradigm is
+essentially data mining and computational thinking applied explicitly
+and broadly to science, both in terms of specific methods and general
+spirit (Gray 2007; Hey, Tansley, and Tolle 2009). The fourth paradigm
+argues for the centrality of database theory and practice to the
+scientific method, to bring analysis closer to where increasingly large
+and complex sets of data physically live, as well for the application of
+the core data mining methods of pattern and rule discovery beyond
+traditional hypothesis testing. Essential to this view is that database
+technologies are not merely add-ons to a process that can be imagined
+without them; the scientist now inhabits an infrastructure that
+constitutes her experience. Science now trades in forms of knowledge
+that do not exist without the computational technologies that generate
+them. What Gray says about astronomy is a parable for all science:</p>
+<p>People now do not actually look through telescopes. Instead, they are
+“looking” through large-scale, complex instruments which relay data to
+datacenters, and only then do they look at the information on their
+computers (Hey, Tansley, and Tolle 2009: xix).</p>
+<p>In other words, databases and the workflows built around them constitute
+the symbolic form of science (Manovich 1999); they are the medium of
+knowledge, not its vehicle. And this is the perspective of data mining.</p>
+<p>A comprehensive definition of data science, then, would complement
+Donoho’s with an authentic representation of the contribution of
+computational technologies and practices to the field. It would
+encompass data analysis and data mining and would embrace the epistemic
+tensions that exist between these ancestral fields, such as those
+between mathematical statistics and computational thinking, and between
+mathematical models and those that emerge from data.</p>
+</section>
+<section id="a-common-trope-the-image-of-the-pipeline">
+<h2>A Common Trope: The Image of the Pipeline<a class="headerlink" href="#a-common-trope-the-image-of-the-pipeline" title="Permalink to this headline">#</a></h2>
+<p>A review of the literature, from sources attempting to define data
+science, and the antecedent fields of data analysis and data mining,
+reveals that most most definitions invoke the image of a data
+pipeline—a sequence of events through which data flows as it moves
+from primary source material to finished analytical product. The image
+is so pervasive and longstanding as to suggest that it functions as a
+root metaphor that undergirds our understanding of data science at a
+deep, cognitive level. The image of the pipeline describes the flow of
+data from a variety of sources—as found in databases or produced by
+intentional experiments or generated by sensors—through a series of
+stages ending in the communication of analytical results or the
+development of a data product. These stages include cleaning, exploring,
+and modeling the data.</p>
+<p>The idea that this pipeline is fundamental to data science is not
+new—in the 1990s, data mining was conceptualized as a pipeline with
+the SEMMA and CRISP-DM models that are widely adopted by data scientists
+today in one form or another, such as Mason and Wiggins’ OSEMI model
+(Azevedo and Santos 2008; Mason and Wiggins 2010). In fact, the image
+goes back at least to the early 1960s, when the Data Sciences Laboratory
+of the U.S. Air Force was created to address the fact that “[m]odern
+data processing and computing machinery, together with improved
+communications, has made it possible to <em>ask for</em>, <em>collect, process and
+use</em> astronomical amounts of detailed data” (AFCRL 1963: 187; emphasis
+added). More recently, Donoho’s “50 Years of Data Science” proposes a
+framework for the field based on a sequence of six divisions that follow
+the structure of a pipeline (Donoho 2017).</p>
+<section id="a-common-sequence">
+<h3>A Common Sequence<a class="headerlink" href="#a-common-sequence" title="Permalink to this headline">#</a></h3>
+<p>An analysis of a representative sample of definitional essays shows that
+the various pipeline stories consist of elements drawn from a standard
+sequence of about twelve elements, give or take a few, depending on how
+one might expand or contract terms. These may signified by a core set of
+verbs or event types (which narratologists call functions), with the
+understanding that many synonyms are employed in the examples: (1)
+understand, (2) plan, (3) collect, (4) store, (5) clean, (6) explore,
+(7) prepare, (8) model, (9), interpret, (10) communicate, (11) deploy,
+and (12) reflect. No one definition includes them all, but some are more
+comprehensive than others, and different disciplines emphasize different
+parts. For example, Hayashi’s statistically-oriented definition of data
+science includes just three phases—design {1}, collect {3}, and
+analyze {8, 9}—with an emphasis on the experimental design phase in
+which data are actually produced through thoughtfully designed
+experiments (Hayashi 1998). Mason and Wiggins propose five—obtain {3,
+4}, scrub {5}, explore {6}, model {8}, and interpret {9}—which
+highlights two conditions that define industrial data science, the
+simultaneous availability of data (one merely obtains it, say through
+web scraping) and their poor condition relative to analysis, i.e. the
+need to scrub and wrangle them into usable form (Mason and Wiggins
+2010). The CRISP-DM model is the most comprehensive, with seven phases
+defined (if we include the unnamed but visually depicted function of
+storage), emphasizing the importance of understanding both the business
+proposition and data before anything is done with it (Wirth and Hipp
+1999). In addition, it modifies the metaphor of the pipeline,
+representing it as a circular and iterative process. But, unlike
+Donoho’s similarly comprehensive sequence (implied by the ordering of
+his six divisions of “greater data science”), it does not include a
+“meta” phase devoted to reflecting on the process as a whole (Donoho
+2017).</p>
+<p>This twelve-part composite pipeline can be simplified by combining
+functions that naturally go together, by virtue of the expertise
+required to carry them out. This reduction yields about seven phases:
+(A) understand and plan, (B) collect and store, (C) clean, prepare, and
+explore, (D) model and interpret, (E) communicate, (F) deploy, and (G)
+reflect. Each of these may be considered a “chapter” in the story. Note
+that the number of verbs in each chapter title does not necessarily
+predict the length of its content. For example, the chapter on “model
+and interpret” covers a wide range of activities from a variety of
+perspectives, including classical statistics, machine learning, and
+computational simulation. It’s a big and complicated chapter, but it is
+just one chapter among seven, even though many may consider it to be the
+most important chapter.</p>
+</section>
+<section id="an-arc-with-four-zones">
+<h3>An Arc with Four Zones<a class="headerlink" href="#an-arc-with-four-zones" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="content/media/image1.png" />{width=”3.83in” height=”1.7in”}To be sure, the
+middle chapter plays a central role in our story. If we think of the
+story as following a classical “there and back again” structure—a
+chiasmus pattern like X~1~ Y~1~ Z Y~2~ X~2~—then chapter D is the
+pivot, while chapters A, B, and C mirror E, F, and G. Thinking of the
+story in this way allows us to identify a parallel structure in the
+pipeline, connecting phases that are usually seen as separate.
+Specifically, we may visualize the pipeline as an arc, in which chapters
+in the first half of the pipeline mirror the those of the second half.
+We may then group chapters by the pairs formed in this way, yielding
+four zones—A and G belong to zone I, B and F to II, C and E to III,
+and D to IV—as in the following diagram ():</p>
+<p><img alt="" src="content/media/image2.png" />{width=”4.32in” height=”1.68in”}With this
+visualization, we can discern some interesting properties about the data
+science pipeline that are not obvious in the original sequential image.
+For one, the arc structure suggests that the two ends of the pipe are
+not separate; both make direct contact with the external world. The
+external world—natural or social–from which data are pulled is the
+same world into which data products are inserted. This insight echoes
+the CRISP-DM model, which connects A and G (actually F), except that the
+two ends of the arc model are not directly connected. Instead, they come
+into contact with—and are separated by—the world in all of its
+complexity and unpredictability. The relationship between the effects
+caused by our data products G and the data we pull from the world A is
+not given but a matter of discovery—and often surprise.</p>
+<p>At this point, we can explore the unifying themes associated with the
+four zones in our arc model by transposing the preceding visualization,
+which draws attention to what is common to each pairing (see ). This
+generates four candidate areas of data science expertise—activities
+that, although they appear on opposite ends of the pipeline,
+nevertheless share basic knowledge, know-how, and areas of concern. Zone
+IV is the easiest to interpret in this way because as the pivot of the
+arc it is not paired. It represents the work of modeling a problem
+mathematically, as well as evaluating and interpreting the results of
+mathematical modeling. This work requires data to be available in a
+particular form—clean and organized, usually as “tidy” analytical
+tables. Zone I is also relatively easy to interpret: the functions in
+this group each involve understanding the relationship between the
+pipeline and the external world, the messy interface between the
+enterprise of data science and the variety of real world situations in
+which it operates. We may note in passing that I and IV can be
+contrasted in several ways—messy vs clean, exoteric vs esoteric,
+qualitative vs quantitative, existential vs essential, concrete vs
+abstract, etc.</p>
+<p>When it comes to zones II and III, the interpretation of results is less
+straightforward. This is because the reality of the kind of work
+performed in these areas is not as clear-cut as it is for I and IV. Both
+II and III exhibit an internal complexity not found in the others, and
+the two are less clearly separable from each other than they are from
+the other two. One reason for this complexity is that here pure and
+applied forms of knowledge intermingle in ways that defy easy
+description from an academic perspective. For example, the work of “data
+wrangling,” considered distinctive to data science, spans the two
+domains and involves a complex mixture of specific technological
+know-how and general scientific principles. It turns out that the
+relationship between these kinds of knowledge is highly contested, as
+evidenced by the reception of Donoho’s “50 Years of Data Science,” which
+has been criticized for separating science from engineering and demoting
+the importance of the latter (Donoho 2017). Regardless of the validity
+of this criticism, there is without doubt a long-standing conflict
+between data mining and data analysis over what counts as valid forms of
+knowledge, and this conflict emerges in the representation of zones II
+and III we find in our corpus.</p>
+<p>We can take the conflict of interpretations over the status of technical
+knowledge in data science as a clue and use it to identify two broad
+dimensions that cross-cut the functions in zones II and III: technical
+know-how and abstract representation. Technical know-how (II´) involves
+expertise in developing and deploying software and hardware designed to
+handle data at scale, including high-performance computing, big data
+architectures (such as Hadoop and its descendants), and data-oriented
+programming languages and libraries. These areas are highly specific and
+change rapidly relative to other forms of knowledge, and so are often
+omitted from, or under-represented in, academic curricula, even though
+to many they are the <em>sine qua non</em> of data science. Abstract
+representation (III´), on the other hand, involves expertise in areas
+ranging from how data are to be modeled for capture and analysis to how
+the results of analyses are to be presented to non-expert
+decision-makers. These areas of knowledge strive for formal generality
+over the long run; they are often expressed as grammars or design
+languages, frequently with visual modes (such as entity-relationship
+models and unified modeling language UML). They also include other forms
+of visualization, such as the plots developed for exploratory data
+analysis, such as box plots, and those used to represent statistical
+facts and analytical results in dashboards and infographics.</p>
+</section>
+<section id="the-four-areas-plus-one">
+<h3>The Four Areas, Plus One<a class="headerlink" href="#the-four-areas-plus-one" title="Permalink to this headline">#</a></h3>
+<p>We are now ready to define and name the areas of data science expertise
+that emerge from an analysis of the pipeline considered as an arc. In
+each case, we want to identify the common context shared by the paired
+activities in each zone as well as the tension that exists between them
+by virtue of their occupying opposite sides of the pipeline. In many
+cases, although we can identify a shared theme in each zone’s work, the
+reality is that practitioners do not always interact or share
+disciplinary homes. One of the benefits of this model will be to
+identify these points of synergy and to identify new disciplinary
+boundaries.</p>
+<section id="area-i-value">
+<h4>Area I: Value<a class="headerlink" href="#area-i-value" title="Permalink to this headline">#</a></h4>
+<p>The area of value is defined by the relationship of data science to the
+world from which it draws data and into which it inserts data products.
+More broadly, it concerns the relationship of data science to its
+motivational horizon—for whom and what do we practice data science and
+why? It combines the traditional discipline of ethics with the
+professional activities of business planning, policy making, developing
+motivations for scientific research, and other activities that have a
+direct impact on people and the planet. This is the area where we
+determine what we do versus what we do not do, in order to maximize
+societal and environmental benefit and minimize harm. It is also the
+area that looks inward to the other data science areas and provides
+guidance on such issues as algorithmic bias or open science. Common
+activities include the forming of value propositions that initiate data
+science projects, research into how data is created and used “in the
+wild,” understanding the ethics of data acquisition, manipulation,
+communication, and sharing, and the application of data products in the
+world.</p>
+</section>
+<section id="area-ii-design">
+<h4>Area II´: Design<a class="headerlink" href="#area-ii-design" title="Permalink to this headline">#</a></h4>
+<p>The area of design is defined by the relationship between human and
+machine forms of representation. This relationship is bidirectional:
+human-generated data flowing into the pipeline must be represented for
+machine consumption (H2M), while analytically transformed data going out
+must be represented for human consumption (M2H). This area therefore
+includes expertise in human-machine interaction as it appears at the
+points of both consuming data and producing data products. Activities
+here include the representation and communication of captured data for
+the work of analytics, e.g. in database modeling, the curation of data,
+and of complex data and analytical results to humans to drive
+decision-making and influence behavior. It also includes the making of
+things, with purpose (i.e. to solve problems) and intent (meaning,
+concision, focus). A key part of the area is the broad practice of what
+is often called visualization, the translation of complex quantitative
+information into visual (and other sensory) forms that non-experts can
+understand. In slightly more technical terms, the area of design focuses
+on what Zuboff called “informating,” the process by which the world is
+represented for computation and analytics, and also by which analytical
+models and results are represented to the world (Zuboff 1995). These two
+processes often produce competing representations—a private one <em>of</em>
+the world for the data scientist, and a public one <em>for</em> the world of
+the results of analytics. One task of this area is to reconcile these
+two representations.</p>
+</section>
+<section id="area-iii-systems">
+<h4>Area III´: Systems<a class="headerlink" href="#area-iii-systems" title="Permalink to this headline">#</a></h4>
+<p>The area of systems is defined by the technological infrastructure that
+is common to the pipeline but concentrated in the activities of
+wrangling data, deploying data products, and building out systems to
+support these activities at scale. This area includes expertise in
+infrastructure systems and architectures to support working with big
+data—big in terms of volume, velocity, and variety—and building high
+performance systems in both development and production environments. It
+includes the broad areas of hardware and software as such—computer
+technology as opposed to computer science. Key activities include
+developing cloud resources, building performant pipelines to ingest and
+aggregate data, developing networks of resilient distributed data, and
+writing and using software to accomplish tasks. This area is often
+referred to as “data engineering” or “machine learning engineering,”
+which, according to Owen, “is most of what Data Science is and
+Statistics is not” (Owen 2015).</p>
+</section>
+<section id="area-iv-analytics">
+<h4>Area IV: Analytics<a class="headerlink" href="#area-iv-analytics" title="Permalink to this headline">#</a></h4>
+<p>The area of analytics is defined by the practice of mathematical
+modeling based on data. This area includes what many consider to be the
+essence of data science, the combination of statistical methods with
+machine learning, along with information theory, optimization, signal
+processing, network analysis, complexity theory, and other rigorous
+quantitative methods from a variety of fields. Although unified by a
+broad commitment to advanced mathematical models and computational
+algorithms, in reality this is a heterogeneous collection of competing
+schools and methods. Tensions include inference vs prediction,
+parametric vs non-parametric (kernel-based) methods, frequentist vs
+Bayesian statistics, analytic vs algorithmic solutions (including
+simulations), etc. Key activities include clustering, pattern
+recognition, regression, rule mining, feature engineering, model
+selection, performance evaluation, and a host of other activities.
+Although currently dominated by statistical methods, this area also
+includes the rule-based methods that dominated the field of artificial
+intelligence before the more recent successes of statistical learning
+and deep learning.</p>
+</section>
+<section id="area-v-practice">
+<h4>Area V: Practice<a class="headerlink" href="#area-v-practice" title="Permalink to this headline">#</a></h4>
+<p>The preceding four areas each represent areas of foundational knowledge,
+forms of expertise that can be taught as more or less separate subjects.
+In practice, however, these areas represent the interlocking parts of a
+division of labor that are integrated in the pipeline. This area
+consists of actual activities that brings people together to combine
+expertise from each of the four areas. It is characterized by data
+science teams working together and with external parties to develop
+solutions and projects that are responsible, authentic, efficient, and
+effective. Practice is also where the core areas of data science come
+into contact with a broad spectrum of domain knowledge and real world
+problems. The following diagram () shows the central, integrative role
+played by practice:</p>
+</section>
+</section>
+<section id="width-4-72in-height-1-92in-two-principal-components">
+<h3><img alt="" src="content/media/image3.png" />{width=”4.72in” height=”1.92in”}Two Principal Components<a class="headerlink" href="#width-4-72in-height-1-92in-two-principal-components" title="Permalink to this headline">#</a></h3>
+<p>Is there a way to understand how the four primary areas are related to
+each other, beyond their being composed of functions from the same
+pipeline? Put another way, does the pipeline-as-arc model exhibit any
+structural features that will help us conceptualize the broader space of
+data science? Two such features stand out: (1) the opposition between
+concrete and abstract forms of representation, and (2) between human and
+machine processing.</p>
+<p>Regarding the concrete and the abstract, it’s clear that the arc model
+has a metric quality to it: as one moves toward the pivot point of
+analysis, one moves away from the concrete messiness of reality as
+experienced to the “tidy” and abstract world of mathematics; similarly,
+as one moves from the pivot back to the world, there is a requirement to
+convert esoteric results into more humanly intelligible forms, often
+through a process of concretization; visualizations succeed by employing
+concrete metaphors that flesh out mathematical ideas that are
+notoriously detached from the imagination—no one can imagine, for
+example, n-dimensional spaces beyond a handful of dimensions. The arc
+describes a dialectic of abstraction and concretization that defines the
+ebb and flow and data science work.</p>
+<p><img alt="" src="content/media/image4.png" />{width=”3.67in” height=”1.71in”}The dimension of
+human and machine processing exhibits a similar duality, that between
+the conversion of information from humanly accessible forms, such as
+given by data acquired by instruments, into machine readable and
+processible forms, and the reverse. The process of moving from human to
+machine representations is a large part of what data capture, modeling,
+and wrangling is all about, while the process of converting the results
+of machine learning, broadly conceived, into humanly actionable form is
+what visualization and productization are all about. The reality of this
+dualism is captured by the concept of human-computer interaction (HCI),
+an established field that is applicable to both sides of the arc.</p>
+<p>How do the four fundamental areas map onto these two dimensions? We can
+define each area as a combination of one pole from each duality; the
+four areas result from all possible permutations of the two dimensions.
+This produces the following high level characterizations of each area:
+(1) Value is concerned with concrete humanity, (2) Design with abstract
+humanity, (3) Analytics with abstract machinery, and (4) Systems is
+concerned with concrete machinery. All of these make intuitive sense,
+with the exception of Design. This is consistent, however, with the fact
+that the area of Design emerges from this analysis as an undervalued and
+not well understood area of expertise, even though Yau emphasized it
+early on (Yau 2009b). Indeed, one of the consequences of this analysis
+is to train our attention on this area of knowledge and to develop it
+further.</p>
+<p>In any case, it is worth noting that the four combinations are
+surprisingly analogous to the four approaches to artificial intelligence
+defined by Russel and Norvig, which is based on the space opened by
+combining thinking/acting with human/rational: (1) thinking humanly, (2)
+thinking rationally, (3) acting humanly, and (4) acting rationally
+(Russell and Norvig 1995: 5). Moreover, it is easy to see how the
+following analogies make sense: abstract : concrete :: thinking :
+action, and human : rational :: human : machine. In fact, it appears
+that the same space is shared by data science as defined here and
+artificial intelligence, with the difference that the former model is
+focused on forms of labor carried out by the data scientist, whereas the
+latter concerns forms of intelligence built by AI specialists. The two
+areas are obviously adjacent.</p>
+<p>One exciting interpretation of the two dimensions defined here is that
+they correspond to two principal components that undergird the general
+field of data science. As components, these axes define two orthogonal
+dimensions within which all the specific topics of data science may, in
+principle, be plotted. The reality behind these axes may be that they
+represent cognitive styles associated with the division of labor implied
+by the data science pipeline.</p>
+<section id="pc1-human-versus-machine">
+<h4>PC1: Human versus Machine<a class="headerlink" href="#pc1-human-versus-machine" title="Permalink to this headline">#</a></h4>
+<p>The human-machine axis accounts for the most variance in the field. This
+seems evident from the fact that Conway’s Venn diagram model of data
+science represents only the machine side of our model (with practice
+replaced by “substantive expertise”). The human side—Value and
+Design—is left out, or short-changed by being lumped in with domain
+knowledge. The very fact that the human side has to be explained and
+added to the model suggests strongly that it defines a pole at some
+distance from the areas of knowledge described in Conway’s model. The
+human pole refers to humanity understood as situated in their
+historical, social, and cultural milieu. It is synonymous with <em>human
+experience</em>. The machine pole refers to the technoscientific apparatus
+of formal, quantitative reasoning that operates on representations of
+the human and the world. In the context of data science, it is more or
+less synonymous with <em>machine intelligence</em>, broadly conceived to
+include machine learning but also other modes of analysis on the
+spectrum of prediction and inference. Given these poles, the
+human-machine axis represents the opposition between humanistic
+disciplines that seek to understand human experience as such, and the
+formal sciences that employ machine intelligence, broadly conceived, to
+interpret that experience as represented and aggregated in the form of
+data.</p>
+</section>
+<section id="pc2-concrete-versus-abstract">
+<h4>PC2: Concrete versus Abstract<a class="headerlink" href="#pc2-concrete-versus-abstract" title="Permalink to this headline">#</a></h4>
+<p>The abstract-concrete axis accounts for the difference between two forms
+of knowledge, roughly between direct experience and the indirect
+representation of that experience enabled through data. Both the realm
+of Value and Systems involve immersion in the messy details of lived
+experience—and direct acquaintance with the devils in those details.
+This is the messy world of hacks and ironies. The realms of Design and
+Analysis, on the other hand, are founded on abstract representations
+that strive for clear and distinct purity, and which allow for deductive
+reasoning to succeed at the cost of simplifying assumptions and reduced
+representations. This is the orderly world of models. The concrete pole
+refers to situated knowledge, knowledge as understood by hackers and
+makers, but also ethnographers who seek to maximize thick description in
+their work. It represents <em>concrete materiality</em>. The abstract pole
+refers to formal knowledge, knowledge in the form of mathematical
+symbolism, deductive proofs, and algorithmic patterns. It is <em>abstract
+form</em>. Given these poles, the concrete-abstract axis is roughly the
+opposition between applied and pure forms of knowledge, between those
+that embrace materiality and those that seek purity of form.</p>
+</section>
+</section>
+<section id="final-representation">
+<h3>Final Representation<a class="headerlink" href="#final-representation" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="content/media/image5.png" />{width=”3.838888888888889in” height=”4.0in”}The
+result of the preceding may be represented by the following graphic ().</p>
+<p>This visualization represents data science as composed of specific and
+complementary forms of knowledge. The vertical axis defines the dominant
+polarity between analysis—the <em>how</em> of data science, often identified
+entirely with it, contrasted with the <em>why</em> of data science, from which
+data science derives its meaning and value as a profession. The
+horizontal access defines the polarity of methods that are often
+obscured in academic definitions of data science—the supporting
+practices that make the Analytics component work in the first place.</p>
+</section>
+</section>
+<section id="interpreting-the-model">
+<h2>Interpreting the Model<a class="headerlink" href="#interpreting-the-model" title="Permalink to this headline">#</a></h2>
+<p>The point of the 4 + 1 model, abstract as it is, is to provide a
+practical template for strategically planning the various elements of a
+school of data science. To serve as an effective template, a model must
+be general. But generality if often purchased at the cost of intuitive
+understanding. The following caveats may help make sense of the model
+when considering its usefulness when applied to various concrete
+activities.</p>
+<p><strong>The model describes areas of academic expertise, not objective
+reality</strong>. It is a map of a division of labor writ large. Although each
+of the areas has clear connections to the others, the question to ask
+when deciding where an activity belongs is: <em>who would be an expert at
+doing it</em>? The realms help refine this question: the analytics area, for
+example, contains people who are good at working with abstract
+machinery. The four areas have the virtue of isolating intuitively
+correct communities of expertise. For example, people who are great at
+data product design may not know the esoteric depths of machine
+learning, and that adepts at machine learning are not usually experts in
+understanding human society and normative culture.</p>
+<p><strong>Each area in the model contains a collection of subfields that need to
+be teased out</strong>. Some areas will have more subfields than others.
+Although some areas may be smaller than others in terms of number of
+experts (faculty) and courses, each area has a major impact on the
+overall practice of data science and the quality of an academic
+program’s activities. In addition, these subfields are in an important
+sense “more real” than the categories. We can imagine them forming a
+dense network in which the areas define communities with centroids, and
+which are more interconnected than the clean-cut image of the model
+implies.</p>
+<p><strong>The principal components abstract/concrete and human/machine are meant
+to help imagine the kinds of activities that belong in each area</strong>,
+through their connotations when combined to form the four
+bigrams—concrete human, abstract human, concrete machine, and abstract
+machine. For example, the area of value as the realm of the “concrete
+human” (or perhaps “concrete humanity”) is meant to connote what the
+Spanish philosopher Unamuno called the world of “flesh and bone” within
+which we live and die, that is, where things matter. On the other hand,
+analytics as the realm of the “abstract machine” is meant to connote the
+platonic world of mathematical reasoning which, since Euclid, has been
+characterized by rigorous, abstract, deductive reasoning that has
+literally been described as an abstract machine (see Alan Turing).</p>
+<p><strong>At the center of this model and each area is people</strong>. Even in the
+area classified as “abstract machine,” people and human thinking is at
+the center.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="afcrl-1963-report-on-research-at-afcrl-bedford-mass-air-force-cambridge-research-laboratories-anderson-chris-2008-the-end-of-theory-the-data-deluge-makes-the-scientific-method-obsolete-wired-june-23-2008-http-www-wired-com-science-discoveries-magazine-16-07-pb-theory-azevedo-ana-isabel-rojao-lourenco-and-manuel-filipe-santos-2008-kdd-semma-and-crisp-dm-a-parallel-overview-iads-dm-breiman-leo-2001-statistical-modeling-the-two-cultures-statistical-science-16-3-199-231-https-doi-org-10-1214-ss-1009213726-bryan-jennifer-and-hadley-wickham-2017-data-science-a-three-ring-circus-or-a-big-tent-december-https-arxiv-org-abs-1712-07349v1-cao-longbing-2017-data-science-a-comprehensive-overview-acm-computing-surveys-50-3-43-1-43-42-https-doi-org-10-1145-3076253-chambers-john-m-1993-greater-or-lesser-statistics-a-choice-for-future-research-statistics-and-computing-3-4-182-84-https-doi-org-10-1007-bf00141776-cleveland-william-s-2001-data-science-an-action-plan-for-expanding-the-technical-areas-of-the-field-of-statistics-international-statistical-review-revue-internationale-de-statistique-69-1-21-26-https-doi-org-10-2307-1403527-conway-drew-2010-the-data-science-venn-diagram-drew-conway-blog-september-30-2010-http-drewconway-com-zia-2013-3-26-the-data-science-venn-diagram-davenport-thomas-h-and-d-j-patil-2012-data-scientist-the-sexiest-job-of-the-21st-century-harvard-business-review-october-1-2012-https-hbr-org-2012-10-data-scientist-the-sexiest-job-of-the-21st-century-davidian-marie-2013-aren-t-we-data-science-amstat-news-the-membership-magazine-of-the-american-statistical-association-no-433-3-donoho-david-2017-50-years-of-data-science-journal-of-computational-and-graphical-statistics-26-4-745-66-https-doi-org-10-1080-10618600-2017-1384734-gray-jim-2007-escience-a-transformed-scientific-method-presented-at-the-nrc-cstb-mountain-view-ca-january-11-hammerbacher-jeff-2009-information-platforms-and-the-rise-of-the-data-scientist-in-beautiful-data-the-stories-behind-elegant-data-solutions-73-84-o-reilly-media-sebastopol-ca-hayashi-chikio-1998-what-is-data-science-fundamental-concepts-and-a-heuristic-example-in-data-science-classification-and-related-methods-edited-by-chikio-hayashi-keiji-yajima-hans-hermann-bock-noboru-ohsumi-yutaka-tanaka-and-yasumasa-baba-40-51-studies-in-classification-data-analysis-and-knowledge-organization-springer-japan-herman-mark-stephanie-rivera-mills-stephen-josh-sullivan-peter-guerra-alex-cosmas-drew-farris-et-al-2013-field-guide-to-data-science-booz-allen-hamilton-inc-https-www-boozallen-com-s-insight-publication-field-guide-to-data-science-html-hey-tony-stewart-tansley-and-kristin-m-tolle-2009-jim-gray-on-escience-a-transformed-scientific-method-laney-douglas-and-lisa-kart-2012-emerging-role-of-the-data-scientist-and-the-art-of-data-science-march-20-2012-https-web-archive-org-web-20130115192221-http-www-gartner-com-displaydocument-ref-clientfriendlyurl-id-1955615-levy-steven-and-l-j-ganser-2012-in-the-plex-how-google-thinks-works-and-shapes-our-lives-unabridged-edition-brilliance-audio-loukides-mike-2011-what-is-data-science-o-reilly-media-inc-https-books-google-com-books-hl-en-lr-id-oq2q5jqodec-oi-fnd-pg-pt2-dq-data-science-ots-1y7o922kdq-sig-yq1xsyng6eckn6oujvjfvtnzkzy-lovell-michael-c-1983-data-mining-the-review-of-economics-and-statistics-65-1-1-12-https-doi-org-10-2307-1924403-manovich-lev-1999-database-as-symbolic-form-convergence-1999-http-con-sagepub-com-cgi-content-abstract-5-2-80-manyika-james-michael-chui-brad-brown-jacques-bughin-richard-dobbs-charles-roxburgh-and-angela-h-byers-2011-big-data-the-next-frontier-for-innovation-competition-and-productivity-http-www-citeulike-org-group-18242-article-9341321-mason-hilary-and-christopher-wiggins-2010-a-taxonomy-of-data-science-dataists-blog-september-25-2010-http-www-dataists-com-2010-09-a-taxonomy-of-data-science-mckinsey-company-2009-hal-varian-on-how-the-web-challenges-managers-mckinsey-company-january-1-2009-https-www-mckinsey-com-industries-technology-media-and-telecommunications-our-insights-hal-varian-on-how-the-web-challenges-managers-nature-big-data-knowledge-in-the-petabyte-era-2008-september-4-2008-https-www-nature-com-nature-volumes-455-issues-7209-ohsumi-noboru-1994-new-data-and-new-tools-a-hypermedia-environment-for-navigating-statistical-knowledge-in-data-science-in-new-approaches-in-classification-and-data-analysis-45-54-berlin-springer-verlag-owen-sean-2015-what-50-years-of-data-science-leaves-out-sean-owen-blog-november-15-2015-https-medium-com-srowen-what-50-years-of-data-science-leaves-out-2366c9b61d3d-rodriguez-robert-2012-big-data-and-better-data-amstat-news-blog-june-1-2012-https-magazine-amstat-org-blog-2012-06-01-prescorner-rodriguez-robert-marie-davidian-and-nathaniel-schenker-2013-the-asa-and-big-data-amstat-news-blog-june-1-2013-https-magazine-amstat-org-blog-2013-06-01-the-asa-and-big-data-russell-stuart-jonathan-and-peter-norvig-1995-artificial-intelligence-a-modern-approach-prentice-hall-simberloff-daniel-b-c-barish-k-k-droegemeier-d-etter-n-fedoroff-k-ford-l-lanzerotti-a-leshner-j-lubchenco-and-m-rossmann-2005-long-lived-digital-data-collections-enabling-research-and-education-in-the-21st-century-national-science-foundation-snow-c-p-2013-the-two-cultures-and-the-scientific-revolution-martino-fine-books-swan-alma-and-sheridan-brown-2008-the-skills-role-and-career-structure-of-data-scientists-and-curators-an-assessment-of-current-practice-and-future-needs-programme-project-deposit-september-2-2008-http-repository-jisc-ac-uk-245-wirth-rudiger-and-jochen-hipp-1999-crisp-dm-towards-a-standard-process-model-for-data-mining-wu-c-f-jeff-1997-statistics-data-science-yau-nathan-2009a-google-s-chief-economist-hal-varian-on-statistics-and-data-flowingdata-blog-february-25-2009-https-flowingdata-com-2009-02-25-googles-chief-economist-hal-varian-on-statistics-and-data-2009b-rise-of-the-data-scientist-flowingdata-blog-june-4-2009-https-flowingdata-com-2009-06-04-rise-of-the-data-scientist-2009c-data-is-the-new-hot-drop-dead-gorgeous-field-flowingdata-blog-august-7-2009-https-flowingdata-com-2009-08-07-data-is-the-new-hot-drop-dead-gorgeous-field-yu-bin-2014-let-us-own-data-science-institute-of-mathematical-statistics-blog-october-1-2014-https-imstat-org-2014-10-01-ims-presidential-address-let-us-own-data-science-zuboff-shoshana-1995-in-the-age-of-the-smart-machine-the-future-of-work-and-power-repr-basic-books-http-gen-lib-rus-ec-book-index-php-md5-76dd1180c201eed5973bf83d45489b37">
+<h2>AFCRL. 1963. “Report on Research at AFCRL.” Bedford, Mass.: Air Force Cambridge Research Laboratories.Anderson, Chris. 2008. “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete.” <em>Wired</em>, June 23, 2008. <a class="reference external" href="http://www.wired.com/science/discoveries/magazine/16-07/pb_theory.Azevedo">http://www.wired.com/science/discoveries/magazine/16-07/pb_theory.Azevedo</a>, Ana Isabel Rojão Lourenço, and Manuel Filipe Santos. 2008. “KDD, SEMMA and CRISP-DM: A Parallel Overview.” <em>IADS-DM</em>.Breiman, Leo. 2001. “Statistical Modeling: The Two Cultures.” <em>Statistical Science</em> 16 (3): 199–231. <a class="reference external" href="https://doi.org/10.1214/ss/1009213726.Bryan">https://doi.org/10.1214/ss/1009213726.Bryan</a>, Jennifer, and Hadley Wickham. 2017. “Data Science: A Three Ring Circus or a Big Tent?,” December. <a class="reference external" href="https://arxiv.org/abs/1712.07349v1.Cao">https://arxiv.org/abs/1712.07349v1.Cao</a>, Longbing. 2017. “Data Science: A Comprehensive Overview.” <em>ACM Computing Surveys</em> 50 (3): 43:1-43:42. <a class="reference external" href="https://doi.org/10.1145/3076253.Chambers">https://doi.org/10.1145/3076253.Chambers</a>, John M. 1993. “Greater or Lesser Statistics: A Choice for Future Research.” <em>Statistics and Computing</em> 3 (4): 182–84. <a class="reference external" href="https://doi.org/10.1007/BF00141776.Cleveland">https://doi.org/10.1007/BF00141776.Cleveland</a>, William S. 2001. “Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics.” <em>International Statistical Review / Revue Internationale de Statistique</em> 69 (1): 21–26. <a class="reference external" href="https://doi.org/10.2307/1403527.Conway">https://doi.org/10.2307/1403527.Conway</a>, Drew. 2010. “The Data Science Venn Diagram.” <em>Drew Conway</em> (blog). September 30, 2010. <a class="reference external" href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram.Davenport">http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram.Davenport</a>, Thomas H., and D. J. Patil. 2012. “Data Scientist: The Sexiest Job of the 21st Century.” Harvard Business Review. October 1, 2012. <a class="reference external" href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century.Davidian">https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century.Davidian</a>, Marie. 2013. “Aren’t We Data Science?” <em>AMSTAT News: The Membership Magazine of the American Statistical Association</em>, no. 433: 3.Donoho, David. 2017. “50 Years of Data Science.” <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66. <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734.Gray">https://doi.org/10.1080/10618600.2017.1384734.Gray</a>, Jim. 2007. “EScience – A Transformed Scientific Method.” Presented at the NRC-CSTB, Mountain View, CA, January 11.Hammerbacher, Jeff. 2009. “Information Platforms and the Rise of the Data Scientist.” In <em>Beautiful Data: The Stories Behind Elegant Data Solutions</em>, 73–84. O’Reilly Media Sebastopol, CA.Hayashi, Chikio. 1998. “What Is Data Science? Fundamental Concepts and a Heuristic Example.” In <em>Data Science, Classification, and Related Methods</em>, edited by Chikio Hayashi, Keiji Yajima, Hans-Hermann Bock, Noboru Ohsumi, Yutaka Tanaka, and Yasumasa Baba, 40–51. Studies in Classification, Data Analysis, and Knowledge Organization. Springer Japan.Herman, Mark, Stephanie Rivera, Mills Stephen, Josh Sullivan, Peter Guerra, Alex Cosmas, Drew Farris, et al. 2013. “Field Guide to Data Science.” Booz Allen Hamilton Inc. <a class="reference external" href="https://www.boozallen.com/s/insight/publication/field-guide-to-data-science.html.Hey">https://www.boozallen.com/s/insight/publication/field-guide-to-data-science.html.Hey</a>, Tony, Stewart Tansley, and Kristin M. Tolle. 2009. “Jim Gray on EScience: A Transformed Scientific Method.”Laney, Douglas, and Lisa Kart. 2012. “Emerging Role of the Data Scientist and the Art of Data Science.” March 20, 2012. <a class="reference external" href="https://web.archive.org/web/20130115192221/http://www.gartner.com/DisplayDocument?ref=clientFriendlyUrl&amp;id=1955615.Levy">https://web.archive.org/web/20130115192221/http://www.gartner.com/DisplayDocument?ref=clientFriendlyUrl&amp;id=1955615.Levy</a>, Steven, and L. J. Ganser. 2012. <em>In The Plex: How Google Thinks, Works, and Shapes Our Lives</em>. Unabridged edition. Brilliance Audio.Loukides, Mike. 2011. <em>What Is Data Science?</em> O’Reilly Media, Inc. <a class="reference external" href="https://books.google.com/books?hl=en&amp;lr=&amp;id=-OQ2q5JqOdEC&amp;oi=fnd&amp;pg=PT2&amp;dq=%22data+science%22&amp;ots=1Y7O922KDq&amp;sig=yQ1XsyNG6eckn6oUjVjfvtNzKzY.Lovell">https://books.google.com/books?hl=en&amp;lr=&amp;id=-OQ2q5JqOdEC&amp;oi=fnd&amp;pg=PT2&amp;dq=”data+science”&amp;ots=1Y7O922KDq&amp;sig=yQ1XsyNG6eckn6oUjVjfvtNzKzY.Lovell</a>, Michael C. 1983. “Data Mining.” <em>The Review of Economics and Statistics</em> 65 (1): 1–12. <a class="reference external" href="https://doi.org/10.2307/1924403.Manovich">https://doi.org/10.2307/1924403.Manovich</a>, Lev. 1999. “Database as Symbolic Form.” Convergence. 1999. <a class="reference external" href="http://con.sagepub.com/cgi/content/abstract/5/2/80.Manyika">http://con.sagepub.com/cgi/content/abstract/5/2/80.Manyika</a>, James, Michael Chui, Brad Brown, Jacques Bughin, Richard Dobbs, Charles Roxburgh, and Angela H. Byers. 2011. “Big Data: The Next Frontier for Innovation, Competition, and Productivity.” <a class="reference external" href="http://www.citeulike.org/group/18242/article/9341321.Mason">http://www.citeulike.org/group/18242/article/9341321.Mason</a>, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.” <em>Dataists</em> (blog). September 25, 2010. <a class="reference external" href="http://www.dataists.com/2010/09/a-taxonomy-of-data-science/.McKinsey">http://www.dataists.com/2010/09/a-taxonomy-of-data-science/.McKinsey</a> &amp; Company. 2009. “Hal Varian on How the Web Challenges Managers.” <em>McKinsey &amp; Company</em>, January 1, 2009. <a class="reference external" href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/hal-varian-on-how-the-web-challenges-managers.%22Nature:">https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/hal-varian-on-how-the-web-challenges-managers.”Nature:</a> Big Data: Knowledge in the Petabyte Era.” 2008, September 4, 2008. <a class="reference external" href="https://www.nature.com/nature/volumes/455/issues/7209.Ohsumi">https://www.nature.com/nature/volumes/455/issues/7209.Ohsumi</a>, Noboru. 1994. “New Data and New Tools: A Hypermedia Environment for Navigating Statistical Knowledge in Data Science.” In <em>New Approaches in Classification and Data Analysis</em>, 45–54. Berlin: Springer-Verlag.Owen, Sean. 2015. “What ‘50 Years of Data Science’ Leaves Out.” <em>Sean Owen</em> (blog). November 15, 2015. <a class="reference external" href="https://medium.com/&#64;srowen/what-50-years-of-data-science-leaves-out-2366c9b61d3d.Rodriguez">https://medium.com/&#64;srowen/what-50-years-of-data-science-leaves-out-2366c9b61d3d.Rodriguez</a>, Robert. 2012. “Big Data and Better Data.” <em>Amstat News</em> (blog). June 1, 2012. <a class="reference external" href="https://magazine.amstat.org/blog/2012/06/01/prescorner/.Rodriguez">https://magazine.amstat.org/blog/2012/06/01/prescorner/.Rodriguez</a>, Robert, Marie Davidian, and Nathaniel Schenker. 2013. “The ASA and Big Data.” <em>Amstat News</em> (blog). June 1, 2013. <a class="reference external" href="https://magazine.amstat.org/blog/2013/06/01/the-asa-and-big-data/.Russell">https://magazine.amstat.org/blog/2013/06/01/the-asa-and-big-data/.Russell</a>, Stuart Jonathan, and Peter Norvig. 1995. <em>Artificial Intelligence: A Modern Approach</em>. Prentice Hall.Simberloff, Daniel, B. C. Barish, K. K. Droegemeier, D. Etter, N. Fedoroff, K. Ford, L. Lanzerotti, A. Leshner, J. Lubchenco, and M. Rossmann. 2005. “Long-Lived Digital Data Collections: Enabling Research and Education in the 21st Century.” <em>National Science Foundation</em>.Snow, C. P. 2013. <em>The Two Cultures and the Scientific Revolution</em>. Martino Fine Books.Swan, Alma, and Sheridan Brown. 2008. “The Skills, Role and Career Structure of Data Scientists and Curators: An Assessment of Current Practice and Future Needs.” Programme/Project deposit. September 2, 2008. <a class="reference external" href="http://repository.jisc.ac.uk/245/.Wirth">http://repository.jisc.ac.uk/245/.Wirth</a>, Rüdiger, and Jochen Hipp. 1999. “CRISP-DM: Towards a Standard Process Model for Data Mining.”Wu, C. F. Jeff. 1997. “Statistics = Data Science?”Yau, Nathan. 2009a. “Google’s Chief Economist Hal Varian on Statistics and Data.” <em>FlowingData</em> (blog). February 25, 2009. <a class="reference external" href="https://flowingdata.com/2009/02/25/googles-chief-economist-hal-varian-on-statistics-and-data/.---------">https://flowingdata.com/2009/02/25/googles-chief-economist-hal-varian-on-statistics-and-data/.———</a>. 2009b. “Rise of the Data Scientist.” <em>FlowingData</em> (blog). June 4, 2009. <a class="reference external" href="https://flowingdata.com/2009/06/04/rise-of-the-data-scientist/.---------">https://flowingdata.com/2009/06/04/rise-of-the-data-scientist/.———</a>. 2009c. “Data Is the New Hot, Drop-Dead Gorgeous Field.” <em>FlowingData</em> (blog). August 7, 2009. <a class="reference external" href="https://flowingdata.com/2009/08/07/data-is-the-new-hot-drop-dead-gorgeous-field/.Yu">https://flowingdata.com/2009/08/07/data-is-the-new-hot-drop-dead-gorgeous-field/.Yu</a>, Bin. 2014. “Let Us Own Data Science.” <em>Institute of Mathematical Statistics</em> (blog). October 1, 2014. <a class="reference external" href="https://imstat.org/2014/10/01/ims-presidential-address-let-us-own-data-science/.Zuboff">https://imstat.org/2014/10/01/ims-presidential-address-let-us-own-data-science/.Zuboff</a>, Shoshana. 1995. <em>In the Age of the Smart Machine: The Future of Work and Power</em>. [Repr.]. Basic Books. <a class="reference external" href="http://gen.lib.rus.ec/book/index.php?md5=76dd1180c201eed5973bf83d45489b37">http://gen.lib.rus.ec/book/index.php?md5=76dd1180c201eed5973bf83d45489b37</a>.<a class="headerlink" href="#afcrl-1963-report-on-research-at-afcrl-bedford-mass-air-force-cambridge-research-laboratories-anderson-chris-2008-the-end-of-theory-the-data-deluge-makes-the-scientific-method-obsolete-wired-june-23-2008-http-www-wired-com-science-discoveries-magazine-16-07-pb-theory-azevedo-ana-isabel-rojao-lourenco-and-manuel-filipe-santos-2008-kdd-semma-and-crisp-dm-a-parallel-overview-iads-dm-breiman-leo-2001-statistical-modeling-the-two-cultures-statistical-science-16-3-199-231-https-doi-org-10-1214-ss-1009213726-bryan-jennifer-and-hadley-wickham-2017-data-science-a-three-ring-circus-or-a-big-tent-december-https-arxiv-org-abs-1712-07349v1-cao-longbing-2017-data-science-a-comprehensive-overview-acm-computing-surveys-50-3-43-1-43-42-https-doi-org-10-1145-3076253-chambers-john-m-1993-greater-or-lesser-statistics-a-choice-for-future-research-statistics-and-computing-3-4-182-84-https-doi-org-10-1007-bf00141776-cleveland-william-s-2001-data-science-an-action-plan-for-expanding-the-technical-areas-of-the-field-of-statistics-international-statistical-review-revue-internationale-de-statistique-69-1-21-26-https-doi-org-10-2307-1403527-conway-drew-2010-the-data-science-venn-diagram-drew-conway-blog-september-30-2010-http-drewconway-com-zia-2013-3-26-the-data-science-venn-diagram-davenport-thomas-h-and-d-j-patil-2012-data-scientist-the-sexiest-job-of-the-21st-century-harvard-business-review-october-1-2012-https-hbr-org-2012-10-data-scientist-the-sexiest-job-of-the-21st-century-davidian-marie-2013-aren-t-we-data-science-amstat-news-the-membership-magazine-of-the-american-statistical-association-no-433-3-donoho-david-2017-50-years-of-data-science-journal-of-computational-and-graphical-statistics-26-4-745-66-https-doi-org-10-1080-10618600-2017-1384734-gray-jim-2007-escience-a-transformed-scientific-method-presented-at-the-nrc-cstb-mountain-view-ca-january-11-hammerbacher-jeff-2009-information-platforms-and-the-rise-of-the-data-scientist-in-beautiful-data-the-stories-behind-elegant-data-solutions-73-84-o-reilly-media-sebastopol-ca-hayashi-chikio-1998-what-is-data-science-fundamental-concepts-and-a-heuristic-example-in-data-science-classification-and-related-methods-edited-by-chikio-hayashi-keiji-yajima-hans-hermann-bock-noboru-ohsumi-yutaka-tanaka-and-yasumasa-baba-40-51-studies-in-classification-data-analysis-and-knowledge-organization-springer-japan-herman-mark-stephanie-rivera-mills-stephen-josh-sullivan-peter-guerra-alex-cosmas-drew-farris-et-al-2013-field-guide-to-data-science-booz-allen-hamilton-inc-https-www-boozallen-com-s-insight-publication-field-guide-to-data-science-html-hey-tony-stewart-tansley-and-kristin-m-tolle-2009-jim-gray-on-escience-a-transformed-scientific-method-laney-douglas-and-lisa-kart-2012-emerging-role-of-the-data-scientist-and-the-art-of-data-science-march-20-2012-https-web-archive-org-web-20130115192221-http-www-gartner-com-displaydocument-ref-clientfriendlyurl-id-1955615-levy-steven-and-l-j-ganser-2012-in-the-plex-how-google-thinks-works-and-shapes-our-lives-unabridged-edition-brilliance-audio-loukides-mike-2011-what-is-data-science-o-reilly-media-inc-https-books-google-com-books-hl-en-lr-id-oq2q5jqodec-oi-fnd-pg-pt2-dq-data-science-ots-1y7o922kdq-sig-yq1xsyng6eckn6oujvjfvtnzkzy-lovell-michael-c-1983-data-mining-the-review-of-economics-and-statistics-65-1-1-12-https-doi-org-10-2307-1924403-manovich-lev-1999-database-as-symbolic-form-convergence-1999-http-con-sagepub-com-cgi-content-abstract-5-2-80-manyika-james-michael-chui-brad-brown-jacques-bughin-richard-dobbs-charles-roxburgh-and-angela-h-byers-2011-big-data-the-next-frontier-for-innovation-competition-and-productivity-http-www-citeulike-org-group-18242-article-9341321-mason-hilary-and-christopher-wiggins-2010-a-taxonomy-of-data-science-dataists-blog-september-25-2010-http-www-dataists-com-2010-09-a-taxonomy-of-data-science-mckinsey-company-2009-hal-varian-on-how-the-web-challenges-managers-mckinsey-company-january-1-2009-https-www-mckinsey-com-industries-technology-media-and-telecommunications-our-insights-hal-varian-on-how-the-web-challenges-managers-nature-big-data-knowledge-in-the-petabyte-era-2008-september-4-2008-https-www-nature-com-nature-volumes-455-issues-7209-ohsumi-noboru-1994-new-data-and-new-tools-a-hypermedia-environment-for-navigating-statistical-knowledge-in-data-science-in-new-approaches-in-classification-and-data-analysis-45-54-berlin-springer-verlag-owen-sean-2015-what-50-years-of-data-science-leaves-out-sean-owen-blog-november-15-2015-https-medium-com-srowen-what-50-years-of-data-science-leaves-out-2366c9b61d3d-rodriguez-robert-2012-big-data-and-better-data-amstat-news-blog-june-1-2012-https-magazine-amstat-org-blog-2012-06-01-prescorner-rodriguez-robert-marie-davidian-and-nathaniel-schenker-2013-the-asa-and-big-data-amstat-news-blog-june-1-2013-https-magazine-amstat-org-blog-2013-06-01-the-asa-and-big-data-russell-stuart-jonathan-and-peter-norvig-1995-artificial-intelligence-a-modern-approach-prentice-hall-simberloff-daniel-b-c-barish-k-k-droegemeier-d-etter-n-fedoroff-k-ford-l-lanzerotti-a-leshner-j-lubchenco-and-m-rossmann-2005-long-lived-digital-data-collections-enabling-research-and-education-in-the-21st-century-national-science-foundation-snow-c-p-2013-the-two-cultures-and-the-scientific-revolution-martino-fine-books-swan-alma-and-sheridan-brown-2008-the-skills-role-and-career-structure-of-data-scientists-and-curators-an-assessment-of-current-practice-and-future-needs-programme-project-deposit-september-2-2008-http-repository-jisc-ac-uk-245-wirth-rudiger-and-jochen-hipp-1999-crisp-dm-towards-a-standard-process-model-for-data-mining-wu-c-f-jeff-1997-statistics-data-science-yau-nathan-2009a-google-s-chief-economist-hal-varian-on-statistics-and-data-flowingdata-blog-february-25-2009-https-flowingdata-com-2009-02-25-googles-chief-economist-hal-varian-on-statistics-and-data-2009b-rise-of-the-data-scientist-flowingdata-blog-june-4-2009-https-flowingdata-com-2009-06-04-rise-of-the-data-scientist-2009c-data-is-the-new-hot-drop-dead-gorgeous-field-flowingdata-blog-august-7-2009-https-flowingdata-com-2009-08-07-data-is-the-new-hot-drop-dead-gorgeous-field-yu-bin-2014-let-us-own-data-science-institute-of-mathematical-statistics-blog-october-1-2014-https-imstat-org-2014-10-01-ims-presidential-address-let-us-own-data-science-zuboff-shoshana-1995-in-the-age-of-the-smart-machine-the-future-of-work-and-power-repr-basic-books-http-gen-lib-rus-ec-book-index-php-md5-76dd1180c201eed5973bf83d45489b37" title="Permalink to this headline">#</a></h2>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The expression “big data” was also launched into the public sphere
+in 2008 when <em>Nature</em> devoted a special issue to the topic of “Big
+Data: Science in the Petabyte Era” on the 10^th^ anniversary of
+Google’s incorporation (<em>Nature</em> 2008). The articles in the issue
+explore the premise that science might learn from Google’s model of
+knowledge production, a view famously championed by Chris Anderson
+in “The End of Theory: The Data Deluge Makes the Scientific Method
+Obsolete,” which appeared in an issue of <em>WIRED</em> also devoted to the
+“petabyte age” (Anderson 2008).</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>This is by no means a full accounting of the usage of the term,
+which can be traced back the 1960s. This history is the subject of
+another essay.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Attempts to define either computer science of statistics as “data
+science” go back much father.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">&lt;no title&gt;</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By R.C. Alvarado<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
