@@ -5,7 +5,7 @@ jupyter-book build edit
 
 # Copy the book to publication directory
 echo "Copying to ./docs"
-cp -pR edit/_build/html docs
+cp -pR edit/_build/html/* docs
 
 # Pust the book to the web
 echo "Pushing to the repo"
