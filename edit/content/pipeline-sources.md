@@ -12,13 +12,17 @@ The twelve documents listed below begin with Tukey's seminal essay on data analy
 
 ## Source List
 
-[Tukey] Tukey, John W. 1962. “The Future of Data Analysis.” _The Annals of Mathematical Statistics_ 33 (1): 1–67. [URL&rarr;](https://www.jstor.org/stable/2237638#metadata_info_tab_contents)
+`[Tukey]` \
+Source: Tukey, John W. 1962. “The Future of Data Analysis.” _The Annals of Mathematical Statistics_ 33 (1): 1–67. [URL&rarr;](https://www.jstor.org/stable/2237638#metadata_info_tab_contents) \
+Field: Data Analysis
 
 1. Gather	 	 	
 1. Analyze	 	 	
 1. Interpret	 	 	 
 
-[KDD] Fayyad, Usama M, Gregory Piatetsky-Shapiro, Padhraic Smyth, and others. 1996. “Knowledge Discovery and Data Mining: Towards a Unifying Framework.” In _KDD_, 96:82–88. [URL&rarr;](https://www.aaai.org/Papers/KDD/1996/KDD96-014.pdf?utm_campaign=ml4devs-newsletter&utm_medium=email&utm_source=Revue%20newsletter)
+`[KDD]` \
+Source: Fayyad, Usama M, Gregory Piatetsky-Shapiro, Padhraic Smyth, et al. 1996. “Knowledge Discovery and Data Mining: Towards a Unifying Framework.” In _KDD_, 96:82–88. [URL&rarr;](https://www.aaai.org/Papers/KDD/1996/KDD96-014.pdf?utm_campaign=ml4devs-newsletter&utm_medium=email&utm_source=Revue%20newsletter)\
+Field: Data Mining
 	
 1. Frame	 	
 1. Collect	
@@ -27,13 +31,17 @@ The twelve documents listed below begin with Tukey's seminal essay on data analy
 1. Analyze	 	
 1. Communicate	 	 
 
-[Hayashi] Hayashi, Chikio. 1998. “What Is Data Science? Fundamental Concepts and a Heuristic Example.” In _Data Science, Classification, and Related Methods_, edited by Chikio Hayashi, Keiji Yajima, Hans-Hermann Bock, Noboru Ohsumi, Yutaka Tanaka, and Yasumasa Baba, 40–51. Studies in Classification, Data Analysis, and Knowledge Organization. Springer Japan. [URL&rarr;](https://link.springer.com/chapter/10.1007/978-4-431-65950-1_3)
+`[Hayashi]` \
+Hayashi, Chikio. 1998. “What Is Data Science? Fundamental Concepts and a Heuristic Example.” In _Data Science, Classification, and Related Methods_, edited by Chikio Hayashi, Keiji Yajima, Hans-Hermann Bock, Noboru Ohsumi, Yutaka Tanaka, and Yasumasa Baba, 40–51. _Studies in Classification, Data Analysis, and Knowledge Organization_. Springer Japan. [URL&rarr;](https://link.springer.com/chapter/10.1007/978-4-431-65950-1_3) \
+Field: Statistics
 	
 1. Design	 	
 1. Collect	 	 	 	 	
 1. Analyze	
 
-[CRISPDM] Wirth, Rüdiger, and Jochen Hipp. 1999. “CRISP-DM: Towards a Standard Process Model for Data Mining.” [URL&rarr;](http://www.cs.unibo.it/~danilo.montesi/CBD/Beatriz/10.1.1.198.5133.pdf)
+`[CRISPDM]` \
+Wirth, Rüdiger, and Jochen Hipp. 1999. “CRISP-DM: Towards a Standard Process Model for Data Mining.” [URL&rarr;](http://www.cs.unibo.it/~danilo.montesi/CBD/Beatriz/10.1.1.198.5133.pdf) \
+Field: Data Mining
 
 1. Business 
 1. Collect 
@@ -43,17 +51,21 @@ The twelve documents listed below begin with Tukey's seminal essay on data analy
 1. Evaluation
 1. Deployment	 
 
-[OSEMI] Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.” _Dataists_ (blog). September 25, 2010. [URL&rarr;](https://sites.google.com/a/isim.net.in/datascience_isim/taxonomy)
+`[OSEMI]` \
+Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.” _Dataists_ (blog). September 25, 2010. [URL&rarr;](https://sites.google.com/a/isim.net.in/datascience_isim/taxonomy) \
+Field: Data Science
 <!--
 http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 -->
 1. Obtain
 2. Scrub
 3. Explore
-4. Models
+4. Model
 5. Interpret
 
-[Ojeda+] Ojeda, Tony, Sean Patrick Murphy, Benjamin Bengfort, and Abhijit Dasgupta. 2014. _Practical Data Science Cookbook_. Birmingham: Packt Publishing. [URL&rarr;](https://www.packtpub.com/product/practical-data-science-cookbook-second-edition/9781787129627)
+`[Ojeda+]` \
+Ojeda, Tony, Sean Patrick Murphy, Benjamin Bengfort, and Abhijit Dasgupta. 2014. _Practical Data Science Cookbook_. Birmingham: Packt Publishing. [URL&rarr;](https://www.packtpub.com/product/practical-data-science-cookbook-second-edition/9781787129627) \
+Field: Data Science
 	 	 	
 1. Acquire	 	
 1. Wrangle	
@@ -62,7 +74,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Communicate	
 1. Operationalize
 
-[Caffo+] Caffo, Brian, Roger D. Peng, and Jeffrey Leek. 2015. _Executive Data Science_. Leanpub. [URL&rarr;](https://leanpub.com/eds)
+`[Caffo+]` \
+Caffo, Brian, Roger D. Peng, and Jeffrey Leek. 2015. _Executive Data Science_. Leanpub. [URL&rarr;](https://leanpub.com/eds) \
+Field: Data Science
 
 1. Question	 	
 1. Get	 	 	
@@ -71,7 +85,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Interpret	
 1. Communicate	 	 
 
-[Donaho] Donoho, David. 2017. “50 Years of Data Science.” _Journal of Computational and Graphical Statistics_ 26 (4): 745–66. [URL&rarr;](https://doi.org/10.1080/10618600.2017.1384734)
+`[Donaho]` \
+Donoho, David. 2017. “50 Years of Data Science.” _Journal of Computational and Graphical Statistics_ 26 (4): 745–66. [URL&rarr;](https://doi.org/10.1080/10618600.2017.1384734) \
+Field: Statistics
 
 1. Gather
 1. Prepare
@@ -82,7 +98,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Present	 	
 1. Meta
 
-[Géron] Géron, Aurélien. 2017. _Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems_. First edition. O’Reilly Media. [URL&rarr;](https://www.investincotedor.fr/sites/default/files/webform/pdf-hands-on-machine-learning-with-scikit-learn-and-tensorflow-conce-aurlien-gron-pdf-download-free-book-21c7262.pdf)
+`[Géron]` \
+Géron, Aurélien. 2017. _Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems_. First edition. O’Reilly Media. [URL&rarr;](https://www.investincotedor.fr/sites/default/files/webform/pdf-hands-on-machine-learning-with-scikit-learn-and-tensorflow-conce-aurlien-gron-pdf-download-free-book-21c7262.pdf) \
+Field: Data Science
 
 1. Big picture	 	
 1. Get	 	
@@ -92,7 +110,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Fine tune	 	 	
 1. Launch	
 
-[Das] Das, Sangeet Moy. 2019. “Data Science Life Cycle 101 for Dummies like Me.” _Medium_. September 20, 2019. [URL&rarr;](https://towardsdatascience.com/data-science-life-cycle-101-for-dummies-like-me-e66b47ad8d8f) 
+`[Das]` \
+Das, Sangeet Moy. 2019. “Data Science Life Cycle 101 for Dummies like Me.” _Medium_. September 20, 2019. [URL&rarr;](https://towardsdatascience.com/data-science-life-cycle-101-for-dummies-like-me-e66b47ad8d8f) \
+Field: Data Science
 
 1. Understand
 1. Mine
@@ -102,7 +122,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Model
 1. Visualize	 	 
 
-[Dataman] Dataman, Dr. 2020. “Data Science Modeling Process & Six Consultative Roles.” _Medium_. February 12, 2020. [URL&rarr;](https://towardsdatascience.com/data-science-modeling-process-fa6e8e45bf02)
+`[Dataman]` \
+Dataman, Dr. 2020. “Data Science Modeling Process & Six Consultative Roles.” _Medium_. February 12, 2020. [URL&rarr;](https://towardsdatascience.com/data-science-modeling-process-fa6e8e45bf02) \
+Field: Data Science
 
 1. Business
 1. Data requirements	
@@ -113,7 +135,9 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Deployment
 1. Monitoring	 	 
 
-[Porter] Porter, Michael. 2020. "A Framework for Data Science." Unpublished.	 	 	
+`[Porter]` \
+Porter, Michael. 2020. "A Framework for Data Science." Unpublished. 	 	\
+Field: Statistics
 <!--
 file:///private/var/folders/14/rnyfspnx2q131jp_752t9fc80000gn/T/com.microsoft.Outlook/Outlook%20Temp/data-science%5B44%5D.html#categories_of_data_science
 -->
