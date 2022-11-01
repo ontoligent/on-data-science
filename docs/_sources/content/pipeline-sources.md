@@ -2,7 +2,7 @@
 
 ## About the sources
 
-The materials on which the conclusions of this essay are drawn from a variety of sources, from technical journals to blogs to internal documents. They also come from a range of viewpoints, from data analysis and statistics to data mining and data science _per se_. For the purposes of the essay, we select a more or less representative subset across these axes of variation. 
+The materials on which the conclusions of this essay are drawn come from a variety of sources, from technical journals to blogs to internal documents. They also come from a range of viewpoints, from data analysis and statistics to data mining and data science _per se_. For the purposes of the essay, we select a more or less representative subset across these axes of variation. 
 
 For each source, we list the phases cited by the authors as fundamental to data processing, broadly conceived. These are aggregated in the table that follows, aligning the specific steps with the general categories used to produce a composite pipeline. Identifiers for each source are indicated by a short string in brackets that precedes the citation and is used in the first column of the table.
 
