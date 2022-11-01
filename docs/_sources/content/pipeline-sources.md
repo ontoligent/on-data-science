@@ -1,8 +1,16 @@
-# Appendix: Sources
+# Appendix: Primary Sources
 
-The source materials on which the conclusions of this essay are ...
+## About the sources
 
-## A Selection of Sources
+The materials on which the conclusions of this essay are drawn from a variety of sources, from technical journals to blogs to internal documents. They also come from a range of viewpoints, from data analysis and statistics to data mining and data science _per se_. For the purposes of the essay, we select a more or less representative subset across these axes of variation. 
+
+For each source, we list the phases cited by the authors as fundamental to data processing, broadly conceived. These are aggregated in the table that follows, aligning the specific steps with the general categories used to produce a composite pipeline. Identifiers for each source are indicated by a short string in brackets that precedes the citation and is used in the first column of the table.
+
+It should be noted that in most cases these phases are explicitly described as a process and often as a pipeline. When they are not, the implication is strong. In some cases, the process is likened to a cycle, emphasizing the connection between the endpoints of the pipeline, which is also emphasized by the 4+1 model.
+
+The twelve documents listed below begin with Tukey's seminal essay on data analysis and end with examples of explainers of data science that have become quite frequent in recent years. Included also are the class definitions of the CRISP-DM and KDD processes which are the most developed pipeline models.
+
+## Source List
 
 [Tukey] Tukey, John W. 1962. “The Future of Data Analysis.” _The Annals of Mathematical Statistics_ 33 (1): 1–67. [URL&rarr;](https://www.jstor.org/stable/2237638#metadata_info_tab_contents)
 
@@ -35,7 +43,7 @@ The source materials on which the conclusions of this essay are ...
 1. Evaluation
 1. Deployment	 
 
-[OSEMI] Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.” Dataists (blog). September 25, 2010. [URL&rarr;](https://sites.google.com/a/isim.net.in/datascience_isim/taxonomy)
+[OSEMI] Mason, Hilary, and Christopher Wiggins. 2010. “A Taxonomy of Data Science.” _Dataists_ (blog). September 25, 2010. [URL&rarr;](https://sites.google.com/a/isim.net.in/datascience_isim/taxonomy)
 <!--
 http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 -->
@@ -54,7 +62,7 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Communicate	
 1. Operationalize
 
-[Caffo+] Caffo, Brian, Roger D. Peng, and Jeffrey Leek. 2015. Executive Data Science. Leanpub. [URL&rarr;](https://leanpub.com/eds)
+[Caffo+] Caffo, Brian, Roger D. Peng, and Jeffrey Leek. 2015. _Executive Data Science_. Leanpub. [URL&rarr;](https://leanpub.com/eds)
 
 1. Question	 	
 1. Get	 	 	
@@ -84,7 +92,7 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Fine tune	 	 	
 1. Launch	
 
-[Das] Das, Sangeet Moy. 2019. “Data Science Life Cycle 101 for Dummies like Me.” Medium. September 20, 2019. [URL&rarr;](https://towardsdatascience.com/data-science-life-cycle-101-for-dummies-like-me-e66b47ad8d8f) 
+[Das] Das, Sangeet Moy. 2019. “Data Science Life Cycle 101 for Dummies like Me.” _Medium_. September 20, 2019. [URL&rarr;](https://towardsdatascience.com/data-science-life-cycle-101-for-dummies-like-me-e66b47ad8d8f) 
 
 1. Understand
 1. Mine
@@ -105,7 +113,7 @@ http://www.dataists.com/2010/09/a-taxonomy-of-data-science/
 1. Deployment
 1. Monitoring	 	 
 
-[Porter] Porter, Michael. 2020. A Framework for Data Science. Unpublished.	 	 	
+[Porter] Porter, Michael. 2020. "A Framework for Data Science." Unpublished.	 	 	
 <!--
 file:///private/var/folders/14/rnyfspnx2q131jp_752t9fc80000gn/T/com.microsoft.Outlook/Outlook%20Temp/data-science%5B44%5D.html#categories_of_data_science
 -->
@@ -120,6 +128,7 @@ file:///private/var/folders/14/rnyfspnx2q131jp_752t9fc80000gn/T/com.microsoft.Ou
 1. Disciplinary
 
 ## Summary Table
+
 <table border="1" class="dataframe" id="pipelines">
   <thead>
     <tr>
@@ -345,26 +354,3 @@ file:///private/var/folders/14/rnyfspnx2q131jp_752t9fc80000gn/T/com.microsoft.Ou
   </tr>
   </tbody>
 </table>
-
-## References
-
-Azevedo, Ana Isabel Rojão Lourenço, and Manuel Filipe Santos. 2008. “KDD, SEMMA and CRISP-DM: A Parallel Overview.” IADS-DM.
-
-Brachman, Ronald J., and Tej Anand. 1994. “The Process of Knowledge Discovery in Databases: A First Sketch.” In KDD Workshop, 3:1–12.
-
-
-
-
-
-
-
-
-
-
-
-
-
-Shafique, Umair, and Haseeb Qaiser. 2014. “A Comparative Study of Data Mining Process Models (Kdd, Crisp-Dm and Semma).” International Journal of Innovation and Scientific Research 12 (1): 217–22.
-
-Weng, Jiahao. 2021. “Exploratory Data Analysis (EDA): A Practical Guide and Template for Structured Data.” Medium. April 18, 2021. https://towardsdatascience.com/exploratory-data-analysis-eda-a-practical-guide-and-template-for-structured-data-abfbf3ee3bd9.
-
