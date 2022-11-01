@@ -1,0 +1,37 @@
+digraph G {
+
+    graph [pad="0.1", nodesep=".5", ranksep="1.5"];
+    splines="true";
+    rankdir = TB
+
+
+    node [shape="plaintext"]
+    edge [color="lightgray"]
+
+
+    node [fontname="arial"]
+    A [group=1 label="A\nunderstand\nplan"]
+    B [group=2 label="B\ncollect\nstore"]
+    C [group=3 label="C\nclean\nprepare\nexxplore"]
+    D [group=4 label="D\nmodel\ninterpret"]
+    E [group=3 label="E\ncommunicate"]
+    F [group=2 label="F\ndeploy"]
+    G [group=1 label="G\nreflect"]
+    A -> B -> C -> D -> E -> F -> G
+
+
+    edge [style="invis"]
+    node [fontname="times"]
+    I   [group=1]
+    II  [group=2]
+    III [group=3]
+    IV  [group=4]
+    I -> II -> III -> IV
+
+    {rank=same; I; A; G}
+    {rank=same; II; B; F}
+    {rank=same; III; C; E}
+    {rank=same; IV; D}
+
+
+}

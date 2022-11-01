@@ -1,0 +1,22 @@
+#pipelines {
+    border-width: 1px 0px;
+    text-align: center;
+}
+
+#pipelines th {
+    text-transform: uppercase;
+    font-size: 75%;
+    border-width: 1px 0px 1px 0px;
+}
+
+#pipelines tbody tr th {
+    text-align: right;
+}
+
+#pipelines td {
+    font-size: 12pt;
+    border-width: 1px 0px 1px 0px;
+    line-height: 12pt;
+    padding: .5rem 1rem;
+    text-transform: lowercase;
+}

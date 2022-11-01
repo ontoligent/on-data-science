@@ -1,0 +1,24 @@
+graph G {
+
+    rankdir=LR  
+
+node [shape="plaintext"]
+
+A [label="Value" group=1]
+B [label="Design"]
+C [label="Systems"]
+D [label="Analytics" group=1]
+
+ A -- B
+ A -- C 
+ A -- D 
+ B -- C 
+ B -- D
+ C -- D
+
+ {rank=same; A}
+ {rank=same; B; C}
+ {rank=same; D}
+
+
+}

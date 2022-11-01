@@ -1,0 +1,74 @@
+source_id|source_label|comp_label
+Hayashi 1996|Design|Understand
+Hayashi 1996|Collect|Collect
+Hayashi 1996|Analyze|Model
+Wiggins 2010|Obtain|Collect
+Wiggins 2010|Scrub|Clean
+Wiggins 2010|Explore|Explore
+Wiggins 2010|Model|Model
+Wiggins 2010|Interpret|Interpret
+Tukey 1962|Gather|Collect
+Tukey 1962|Analyze|Store
+Tukey 1962|Interpret|Interpret
+Donaho 2017|Gather|Collect 
+Donaho 2017|Prepare|Clean
+Donaho 2017|Explore|Explore
+Donaho 2017|Represent and transform; Compute|Prepare 
+Donaho 2017|Model|Model
+Donaho 2017|Present|Communicate
+Donaho 2017|Meta|Reflect
+Das 2019|Understand|Understand
+Das 2019|Mine|Collect
+Das 2019|Clean|Clean
+Das 2019|Explore|Explore
+Das 2019|Features|Prepare
+Das 2019|Model|Model
+Das 2019|Visualize|Communicate
+CPL 2018|Question|Understand 
+CPL 2018|Get|Collect
+CPL 2018|Explore|Explore
+CPL 2018|Model|Model
+CPL 2018|Interpret|Interpret
+CPL 2018|Communicate|Communicate
+Porter 2020|Collect|Collect
+Porter 2020|Store_and_Represent|Store
+Porter 2020|Manipulation|Clean
+Porter 2020|Computing|Prepare
+Porter 2020|Analytics|Model
+Porter 2020|Communicate|Communicate
+Porter 2020|Practice|Deploy
+Porter 2020|Disciplinary|Reflect  
+CRISP-DM|Business|Understand
+CRISP-DM|Collect|Collect
+CRISP-DM|Explore|Explore
+CRISP-DM|Preparation|Prepare
+CRISP-DM|Modeling|Model
+CRISP-DM|Evaluation|Interpret
+CRISP-DM|Deployment|Deploy
+Fayyad et al 1996|Frame|Understand 
+Fayyad et al 1996|Collect|Collect
+Fayyad et al 1996|Process|Clean
+Fayyad et al 1996|Explore|Store
+Fayyad et al 1996|Analyze|Model
+Fayyad et al 1996|Communicate|Communicate
+Géron 2107|Big_Picture|Understand
+Géron 2107|Get|Collect
+Géron 2107|Clean|Clean
+Géron 2107|Discover|Explore
+Géron 2107|Prepare|Prepare
+Géron 2107|Model; Fine Tune|Model
+Géron 2107|Present|Column
+Géron 2107|Launch|Deploy
+Ojeda et al 2014|Acquire|Collect
+Ojeda et al 2014|Explore|Explore
+Ojeda et al 2014|Wrangle|Clean
+Ojeda et al 2014|Analyze_and_model|Model
+Ojeda et al 2014|Communicate|Communicate
+Ojeda et al 2014|Operationalize|Deploy
+Dataman 2020|Business|Understand 
+Dataman 2020|DataReq|Plan
+Dataman 2020|Collection|Collect
+Dataman 2020|EDA|Explore
+Dataman 2020|Modeling|Model
+Dataman 2020|Evaluation|Interpret
+Dataman 2020|Deployment; Monitoring|Deploy

@@ -1,0 +1,257 @@
+digraph Pipelines {
+
+    // Format  
+    rankdir=LR
+    graph [nodesep="0" ranksep=".3"]
+    node [shape="none"]
+    edge [arrowhead="vee" color="gray"]
+
+    // Header row
+    node [fontsize=12]
+
+    // Statisticians
+    node [fontcolor="blue"]
+    C [label="Tukey\n1962"]
+    A [label="Hayashi\n1996"]
+    D [label="Donaho\n2017"] 
+    F [label="Caffo, et al.\n2018"] 
+    G [label="Porter\n2020"]
+    
+    // Data Miners
+    node [fontcolor="red"]
+    H [label="CRISP-DM\n1996"]
+    B [label="Mason &Wiggins\n2010"]
+    //C [label="Loukides\n2011"]
+    K [label="Ojeda, et al.\n 2014"]
+    I [label="KDD\n2016"]
+    J [label="Géron\n2017"]
+    E [label="Das\n2019"]
+    L [label="Dataman\n2020"]
+
+    node [fontcolor="black"]
+    
+    node [fontsize=14 fontname=arial]
+
+    // Hayashi 1996
+    A1_Design [label="Design"] 
+    A2_Collect [label="Collect"] 
+    A3_Analyze [label="Analyze"]
+    A1_Design -> A2_Collect -> A3_Analyze
+    
+    // Wiggins 2010
+    B1_Obtain [label="Obtain"]
+    B2_Scrub [label="Scrub"]
+    B3_Explore [label="Explore"]
+    B4_Model [label="Model"]
+    B5_Interpret [label="Interpret"]
+    B1_Obtain -> B2_Scrub -> B3_Explore -> B4_Model -> B5_Interpret
+
+    // Tukey 1962
+    C1_Gather [label="Gather"]
+    C2_Analyze [label="Analyze"]
+    C3_Interpret [label="Interpret"]
+    C1_Gather -> C2_Analyze -> C3_Interpret
+    
+    // Donaho 2017
+    D1a_Gather [label="Gather"] 
+    D1b_Prepare [label="Prepare"] 
+    D1c_Explore [label="Explore"] 
+    D2_Represent [label="Represent,\nTransform"]
+    D3_Compute [label="Compute"]
+    D5_Model [label="Model"]
+    D4_Present [label="Present"]
+    D6_Meta [label="Science"]
+    D1a_Gather -> D1b_Prepare -> D1c_Explore -> D2_Represent -> D5_Model -> D4_Present
+    D4_Present -> D6_Meta -> D3_Compute [style="invis"]
+    
+    // Das 2019
+    E1_Understand [label="Understand"] 
+    E2_Mine [label="Mine"] 
+    E3_Clean [label="Clean"] 
+    E4_Explore [label="Explore"] 
+    E5_Features [label="Features"] 
+    E6_Model [label="Model"] 
+    E7_Visualize [label="Visualize"] 
+    E1_Understand -> E2_Mine -> E3_Clean -> E4_Explore -> E5_Features -> E6_Model -> E7_Visualize 
+    /* E7_Visualize -> E1_Understand */
+    
+    // CPL 2018
+    F1_Question [label="Question"] 
+    F2a_Get [label="[Get]"]
+    F2_Explore [label="Explore"] 
+    F3_Model [label="Model"] 
+    F4_Interpret [label="Interpret"] 
+    F5_Communicate [label="Communicate"]
+    F1_Question -> F2a_Get -> F2_Explore -> F3_Model -> F4_Interpret -> F5_Communicate    
+    
+    // Porter 2020
+    G1_Collection [label="Collect"] 
+    G2_Representation [label="Store and\nRepresent"] 
+    G3_Manipulation [label="Manipulate and\nTransform"]
+    G4_Computing [label="Computing"]
+    G5_Analytics [label="Analytics"]
+    G6_Communicating [label="Communicate"]
+    G7_Practice [label="Practice"]
+    G8_Disciplinary [label="Disciplinary"]
+    G1_Collection -> G2_Representation -> G3_Manipulation -> G5_Analytics -> G6_Communicating 
+    G6_Communicating -> G7_Practice  -> G4_Computing -> G8_Disciplinary [style="invis"]
+  
+    // CRISP-DM
+    H1_Value [label="Business"]
+    H2a_Collect [label="Collect (U1)"]
+    H2b_Explore [label="Explore (U2)"]
+    H3_Preparation [label="Prepare"]
+    H4_Modeling [label="Modele"]
+    H5_Evaluation [label="Evaluate"]
+    H6_Deployment [label="Deploy"]
+    H1_Value -> H2a_Collect -> H2b_Explore -> H3_Preparation -> H4_Modeling -> H5_Evaluation -> H6_Deployment
+
+    /*
+    H5_Evaluation -> H1_Value
+    H2a_Collect -> H1_Value
+    H4_Modeling -> H3_Preparation 
+    */
+
+    // KDD Data Science Process
+    I1_Frame [label="Frame"]
+    I2_Collect [label="Collect"]
+    I3_Process [label="Process"]
+    I4_Explore [label="Explore"]
+    I5_Analyze [label="Analyze"]
+    I6_Communicate [label="Communicate"]
+    I1_Frame -> I2_Collect -> I3_Process -> I4_Explore -> I5_Analyze -> I6_Communicate
+
+    // Géron 2107
+    J1_BigPic [label="Look at\nbig picture"]
+    J2_Get [label="Get"]
+    J4a_Clean [label="[Clean?]"]
+    J3_Discover [label="Discover"]
+    J4_Prepare [label="Prepare"]
+    J5_Model [label="Model"]
+    J6_FineTune [label="Fine-tune"]
+    J7_Present [label="Present"]
+    J8_Launch [label="Launch"]
+    J1_BigPic -> J2_Get -> J4a_Clean -> J3_Discover -> J4_Prepare -> J5_Model -> J6_FineTune -> J7_Present -> J8_Launch
+
+    // Ojeda, et al. 2014
+    K1_Acquire [label="Acquire"]
+    K2_Explore [label="Explore"]
+    K3_Wrangle [label="Wrangle"]
+    K4_Model [label="Analyze\nand model"]
+    K5_Communicate [label="Communicate"]
+    K6_Operationalize [label="Operationalize"]
+    K1_Acquire -> K2_Explore -> K3_Wrangle -> K4_Model -> K5_Communicate -> K6_Operationalize
+
+    // Dataman 2020
+    L1_Business [label="Understand\nBusiness\nObjective"]
+    L2_DataReq [label="Define\nData\nRequirement"]
+    L3_Collection [label="Collect"]
+    L4_EDA [label="Explore"]
+    L5_Modeling [label="Model"]
+    L6_Evaluation [label="Evaluate"]
+    L7_Deployment [label="Deploy\nand Montor"]
+    //L8_Monitoring
+    L1_Business -> L2_DataReq -> L3_Collection -> L4_EDA -> L5_Modeling -> L6_Evaluation -> L7_Deployment
+
+    // Column binding
+    edge [style="invis"]
+    A -> A1_Design 
+    B -> B1_Obtain 
+    C -> C1_Gather
+    D -> D1a_Gather
+    E -> E1_Understand
+    F -> F1_Question
+    G -> G1_Collection
+    H -> H1_Value
+    I -> I1_Frame
+    J -> J1_BigPic
+    K -> K1_Acquire
+    L -> L1_Business
+
+    // Column for sequence label 
+    0 [label="Phase"] // Labels
+    
+    /*
+1. Understand
+2. Plan
+3. Collect
+4. Store
+5. Clean 
+6. Explore
+7. Prepare 
+8. Model
+9. Interpret
+10. Communicate
+11. Deploy 
+12. Reflect 
+    */
+    // node[]
+    1 [label="UNDERSTAND"]
+    1a [label="PLAN"]
+    2 [label="COLLECT"]
+    3 [label="STORE"]
+    4 [label="CLEAN"]
+    5 [label="EXPLORE"]
+    6 [label="PREPARE"]
+    7 [label="MODEL"]
+    8 [label="INTERPRET"]
+    9 [label="COMMUNICATE"]
+    10 [label="DEPLOY"]
+    11 [label="REFLECT"]
+    12 [label=""]
+    13 [label=""]
+
+    // Index
+    0 -> 1 -> 1a -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13
+
+
+    // ALIGNMENTS
+
+    // Labels
+    {rank=same; 0; A; B; C; D; E; F; G; H; I; K}
+
+    // 1 Understand
+    {rank=same; 1; A1_Design; E1_Understand; F1_Question; H1_Value; I1_Frame; J1_BigPic; L1_Business}
+
+    // 1a Plan
+    //{rank=same; 1a}
+
+    // 2 Collect
+    {rank=same; 2; A2_Collect; B1_Obtain; C1_Gather; D1a_Gather; E2_Mine; F2a_Get; G1_Collection; H2a_Collect; I2_Collect; J2_Get; K1_Acquire; L3_Collection}
+
+    // 3 Aggregate?
+    //{rank=same; 3; C2_Aggregate; D2_Represent}
+    {rank=same; 3}
+
+    // 4 Clean
+    {rank=same; 4; B2_Scrub; D1b_Prepare; E3_Clean; I3_Process; J4a_Clean}
+    
+    // 5 Explore
+    {rank=same; 5; B3_Explore; E4_Explore; F2_Explore; H2b_Explore; I4_Explore; J3_Discover; K2_Explore; L4_EDA}
+
+    // 6 Prepare
+    {rank=same; 6; E5_Features; G3_Manipulation; H3_Preparation; J4_Prepare; K3_Wrangle}
+
+    // 7 Model
+    {rank=same; 7; A3_Analyze; B4_Model; C2_Analyze; D5_Model; E6_Model; F3_Model; G5_Analytics; H4_Modeling; I5_Analyze; J5_Model; K4_Model; L5_Modeling}
+
+    // 8 Interpret
+    {rank=same; 8; B5_Interpret; C3_Interpret; F4_Interpret; H5_Evaluation; J6_FineTune; L6_Evaluation}
+    
+    // 9 Communicate
+    {rank=same; 9; D4_Present; E7_Visualize; F5_Communicate; G6_Communicating; I6_Communicate; J7_Present; K5_Communicate}
+    
+    // 10 Deploy
+    {rank=same; 10; H6_Deployment; J8_Launch; K6_Operationalize; L7_Deployment}
+    
+    // 11 Reflects
+    {rank=same; 11; D6_Meta; G7_Practice}
+
+    // 12 
+    {rank=same; 12; D3_Compute}
+
+    // 13
+    {rank=same; 13; G8_Disciplinary}
+
+
+}

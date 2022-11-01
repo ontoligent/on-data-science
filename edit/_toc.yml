@@ -6,3 +6,4 @@ format: jb-book
 root: index
 chapters:
 - file: content/from-pipeline-to-paradigm
+- file: content/pipeline-sources

@@ -1,0 +1,28 @@
+digraph Genealogy {
+
+    rankdir=TB
+
+    node [shape="plaintext" fontname="arial"]
+
+    DA [label="Data Analysis"]
+    KDD [label="KDD"]
+    DM [label="Data Mining"]
+    AI
+    ML
+    Stats [label="Statistics"]
+    DS
+    CS
+    DB
+
+    Stats -> DA
+    DM -> KDD
+    ML -> KDD
+    DA -> KDD
+    AI -> ML
+    KDD -> DS
+    Stats -> DS
+    CS -> DS
+    CS -> ML
+    CS -> DB -> DM
+
+}

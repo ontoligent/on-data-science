@@ -1,0 +1,28 @@
+digraph G {
+
+    node [shape="plaintext"]
+    edge [color="gray" arrowhead=""]
+
+    V [label="I\nValue"]
+    D [label="II´\nDesign"]
+    S [label="III´\nSystems"]
+    A [label="IV\nAnalytics"]
+    P [label="V\nPractice" shape="ellipse" style="filled"]
+
+    V -> P 
+    D -> P 
+    S -> P 
+    A -> P 
+
+    P -> {Medicine;Education;Finance;Humanities;etc}
+    
+    etc [label="etc."]
+
+    edge [style="invis"]
+    AREAS [label="4 AREAS"]
+    DOMAINS [label=<<i>N</i>  DOMAINS>]
+    X [style="invis"]
+    AREAS -> X -> DOMAINS
+
+
+}

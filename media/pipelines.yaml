@@ -1,0 +1,203 @@
+Donaho 2017:
+    - GDS1: Data Gathering, Preparation, and Exploration
+        - Gather
+        - Prepare
+        - Explore (EDA)
+    - GDS2: Data Representation and Transformation
+        - Represent in database
+        - Extract, Transform, Load
+        - Represent mathematically
+    - GDS3: Computing with Data
+        Writing code in R and Python
+Computational efficiency
+Clusters and cloud computing
+Workflows
+Packages
+GDS4: Data Visualization and Presentation
+Visualization
+Presentation
+GDS5: Data Modeling
+Generative models
+Predictive models
+GDS6: Science about Data Science
+Data in the wild
+Common workflows
+Wiggins 2010
+1. Obtain
+Download, query, extract
+Generate
+2. Scrub
+Filter, extract, replace, convert
+Handle missing values
+3. Explore
+Look at your data
+Derive statistics from your data
+Create interesting visualizations
+4. Model
+Cluster, classify
+Feature engineering
+5. Interpret
+Draw conclusions from your data
+Evaluate what results mean
+Communicate results
+Das 2019
+1. Business understanding (1)
+2. Data mining (extraction)
+3. Data cleaning
+4. Data exploration
+5. Feature engineering
+6. Predictive modeling
+7. Data Visualization
+8. Business Understanding (2)
+Hayashi 1996
+Design
+Experimental design
+Survey methods, questionnaire construction
+Evaluation of bias, randomization
+Collection
+Survey bias, experimental bias
+Non-response error, measurement error, response error
+Analysis
+Scaling, EDA, simulations
+Caffo, Peng, and Leek 2015
+1. Question
+descriptive
+exploratory
+inferential
+causal
+predictive
+mechanistic
+2. Exploratory data analysis
+Acquire the data
+Explore the data
+Determine if the data are suitable for the question
+Determine of the data are sufficient
+Sketch a solution
+3. Formal modeling
+Define parameters to estimate
+Challenge results
+4. Interpretation
+Compare results with expectations
+Consider the totality of evidence
+5. Communication.
+Reports
+Presentations
+Apps
+Porter 2020
+1. Data Collection/Acquisition
+modes of collection; sensors, surveys, etc.
+web scraping, APIs (SOAP, REST)
+ethical components of how and what data is collected (including privacy)
+statistical aspects of sampling (e.g., how to often to collect from wearable sensors; battery consumption; compression sensing trade-offs)
+information theory aspects of sampling
+how much data to collect, when to collect data
+2. Data Storage and Representation
+architectures, systems, data formats, security
+distributed/cloud vs. local
+file types
+steaming vs. static data
+tidy formats
+database design, e.g., relational vs. non-relational
+compression
+blockchain
+cyber-security (security, privacy, access limitations)
+how to store different data types e.g.: networks (adjacency vs. list), time series (panel vs. cross-sectional), spatial/GIS (raster vs. vector)
+long vs. wide vs. deep format
+time, memory, accessibility trade-offs
+3. Data Manipulation/Transformation
+Coding and Workflows best practices
+Wrangling/Tidying
+Data Cleaning
+Data Import (connections to file types)
+accessing relational data (e.g., SQL) and non-relational data (e.g., noSQL)
+Data Types and common transformations: vectors, matrices, arrays, lists, dictionaries
+strings/text (regex), imagery, graphs, dates/times, spatial (projections)
+Programming (basics for working with data; see computing with data for another view of coding)
+Primary Languages (R, Python, SQL)
+Functions, loops, flow control, iteration, etc.
+Big Data Connections
+Working in distributed vs. in-memory
+SQL vs. NoSQL
+4. Computing with Data
+Algorithm design, algorithm performance
+time and memory requirements
+Floating point calculations
+In-memory vs. out of memory
+Distributed/Cloud vs. in-memory.
+Load balancing, indexing, search, sorting, hashing
+CPU vs. GPU
+Matrix Operations (linear algebra packages)
+Primary Languages: Python, R, Julia, C++, Java, …
+5. Data Analytics
+Generative Modeling (Stats, Bayesian)
+Predictive Modeling (Stats, ML)
+Optimization
+Statistical Inference (one purpose for modeling)
+Testing, Uncertainty Quantification
+Especially computational statistics (resampling based)
+Exploratory Data Analysis (modeling to better understand the data)
+Exploratory vs. Confirmatory Modeling
+Supervised vs. Unsupervised, Semi-supervised, etc.
+Artificial Intelligence
+Feature Engineering
+Cloud and HPC implementations
+Programs to implement models: R(tidymodels, caret, base R), Python (scikit-learn), Keras/TensorFlow/etc., SparkMLib, H20
+6. Summarizing/Communicating Data and Models
+Exploratory Data Analysis (for understanding the data)
+Visualization (static and dynamic, dashboards)
+Tables/Graphs. Theory of when to summarize with table vs. visualization. Static vs. dynamic
+Formats of representation: image types, table layouts; file types: static pdf, html with embedded animation
+Communication of: data, models, bias, limitations, etc.: verbal, reports, etc
+Model interpretation (e.g., interpreting ANNs)
+Statistical significance issues (e.g., p-value controversy, inference)
+Model Evaluation (ROC curves, confusion matrix, model comparisons, etc.)
+7. Practicing Data Science
+Focused on improving the data science system/pipeline
+Replicability of results; reproducible science
+Openness and transparency
+Coding practices, e.g., Code reformatting so it is more readable; consistent styles
+Software development and Engineering
+Agile, Scrum, sprints
+version control (e.g., Git)
+Dubugging, Testing
+Implementation of Data Science Tools (e.g., Production quality models)
+Project Management
+Client Management
+Data Science Team Structure (connections to business schools)
+centralized vs. distributed data scientists
+business applications
+Data Science Consulting
+8. Disciplinary Data Science
+CRISP-DM
+1. Business Understanding
+Determine Business Objectives
+Situation Assessment
+Risks and Contingencies
+Determine Data Mining Goal
+Produce Project Plan
+2. Data Understanding
+Collect Initial Data
+Describe Data
+Explore Data
+Verify Data Quality
+3. Data Preparation
+Data Set Description
+Select Data
+Clean Data
+Construct Data
+Integrate Data
+Format Data
+4. Modeling
+Select Modeling Technique
+Generate Test Design
+Build Model
+Assess Model
+5. Evaluation
+Evaluate Results
+Review Process
+Determine Next Steps
+6. Deployment
+Plan Deployment
+Plan Monitoring and  Maintenance
+Produce Final Report
+Review Project
